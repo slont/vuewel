@@ -1,0 +1,28 @@
+@import "./constants";
+
+html {
+  font-size: $size-base;
+
+  .is-larger {
+    font-size: $size-1;
+  }
+  .is-large {
+    font-size: $size-3;
+  }
+  .is-small {
+    font-size: $size-7;
+  }
+  .is-smaller {
+    font-size: $size-9;
+  }
+}
+
+input, textarea {
+  font-size: $size-base;
+}
+
+.is-field {
+  &:not(:last-child) {
+    margin-bottom: .5rem;
+  }
+}
