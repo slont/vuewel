@@ -1,6 +1,6 @@
 <template>
-  <button class="w-button" @click="onClick">
-    <span>Hello Test {{msg}}</span>
+  <button class="w-button" :class="cls" @click="onClick" :disabled="disabled">
+    <slot></slot>
   </button>
 </template>
 
@@ -8,10 +8,8 @@
   export default {
     name: 'w-button',
     props: {
-      msg: {
-        type: String,
-        required: true
-      },
+      cls: String,
+      disabled: Boolean,
       onclick: {
         type: Function,
         default: null
@@ -38,10 +36,59 @@
 
 <style lang="scss">
   .w-button {
-    color: blue;
+    font-size: $size-5;
+    border-radius: 5px;
+    border: 1px solid gainsboro;
+    padding: .5em 1em;
+    background-color: $white;
+    outline: none;
+    cursor: pointer;
+    transition: background-color .2s, color .15s;
 
-    span {
-      color: red;
+    &:hover {
+      /*&.is-primary {
+        background-color: $white;
+        color: $primary;
+      }
+      &.is-red {
+        background-color: $white;
+        color: $red;
+      }
+      &.is-green {
+        background-color: $white;
+        color: $green;
+      }*/
+    }
+    &.is-primary {
+      background-color: $primary;
+      color: $white;
+      border: 1px solid $primary;
+    }
+    &.is-red {
+      background-color: $red;
+      color: $white;
+      border: 1px solid $red;
+    }
+    &.is-green {
+      background-color: $green;
+      color: $white;
+      border: 1px solid $green;
+    }
+    &.is-outlined {
+      &:not(:hover) {
+        &.is-primary {
+          background-color: $white;
+          color: $primary;
+        }
+        &.is-red {
+          background-color: $white;
+          color: $red;
+        }
+        &.is-green {
+          background-color: $white;
+          color: $green;
+        }
+      }
     }
   }
 </style>
