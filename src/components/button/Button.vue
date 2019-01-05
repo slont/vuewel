@@ -10,7 +10,6 @@
   export default {
     name: 'WButton',
     props: {
-      cls: String,
       disabled: Boolean,
       processing: Boolean,
       onclick: {
@@ -54,6 +53,8 @@
     cursor: pointer;
     transition: background-color .2s, color .15s;
     opacity: .9;
+    height: 2.25em;
+    min-width: 2.25em;
 
     // Basic
     &.is-primary {
@@ -167,6 +168,10 @@
           border: 1px solid $green;
         }
       }
+    }
+
+    > .icon:first-child:last-child {
+      margin: 0 -.5em;
     }
   }
 </style>

@@ -116,19 +116,66 @@ storiesOf('Button', module)
     }));
 
 
-storiesOf('Button', module)
+storiesOf('Modal', module)
     .add('Styles', () => ({
       template: `
 <div>
+  <div>
+    Modal Test
+  </div>
   <div class="field">
-    <label for="">Color</label>
-    <w-button>Default</w-button>
-    <w-button class="is-primary">Primary</w-button>
-    <w-button class="is-red">Red</w-button>
-    <w-button class="is-green">Green</w-button>
+    <w-button class="is-rounded" @click="openModal('modal1')">
+      <span class="icon">あ</span>
+    </w-button>
+    
+    <w-modal ref="modal1">
+      <div class="modal-head">Head 1</div>
+      <div class="modal-content">
+        <div>Content</div>
+        <div>
+          <w-button class="is-rounded" @click="openModal('modal2')">
+            <span class="icon">い</span>
+          </w-button>
+          <w-button class="is-rounded" @click="openModal('modal3')">
+            <span class="icon">う</span>
+          </w-button>
+        </div>
+
+        <w-modal ref="modal3">
+          <div class="modal-head">Head 3</div>
+          <div class="modal-content">
+            <div>Content</div>
+          </div>
+          <div class="modal-foot">
+            <w-button @click="closeModal">キャンセル</w-button>
+            <w-button class="is-green" @click="closeModal('modal3')">OK</w-button>
+          </div>
+        </w-modal>
+      </div>
+      <div class="modal-foot">
+        <w-button @click="closeModal">キャンセル</w-button>
+        <w-button class="is-green" @click="closeModal('modal1')">OK</w-button>
+      </div>
+    </w-modal>
+
+    <w-modal ref="modal2">
+      <div class="modal-head">Head 2</div>
+      <div class="modal-content">Content</div>
+      <div class="modal-foot">
+        <w-button @click="closeModal">キャンセル</w-button>
+        <w-button class="is-green" @click="closeModal('modal2')">OK</w-button>
+      </div>
+    </w-modal>
   </div>
 </div>`,
-      methods: {action: linkTo('Button')},
+      methods: {
+        openModal(ref) {
+          this.$refs[ref].open()
+        },
+        closeModal(ref) {
+          this.$refs[ref].close()
+        }
+      },
     }));
 
 /* eslint-enable react/react-in-jsx-scope */
