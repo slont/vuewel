@@ -32,3 +32,12 @@ $tabs-border-bottom-width: 3px;
 $tabs-border-bottom-color: $transparent;
 $modal-card-head-background-color: white;
 $modal-card-body-padding: 1rem .75rem;
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(359deg)
+  }
+}

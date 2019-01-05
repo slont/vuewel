@@ -2,8 +2,10 @@
 
 html {
   font-size: $size-base;
+}
 
-  .is-larger {
+body {
+  .is-huge {
     font-size: $size-1;
   }
   .is-large {
@@ -12,7 +14,7 @@ html {
   .is-small {
     font-size: $size-7;
   }
-  .is-smaller {
+  .is-mini {
     font-size: $size-9;
   }
 }
@@ -24,5 +26,26 @@ input, textarea {
 .is-field {
   &:not(:last-child) {
     margin-bottom: .5rem;
+  }
+}
+
+.is-loading {
+  color: transparent !important;
+
+  &:after {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: calc(-.5em - 2px);
+    margin-left: calc(-.5em - 2px);
+    animation: spinAround .5s infinite linear;
+    border: 2px solid #dbdbdb;
+    border-radius: 290486px;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    content: "";
+    display: block;
+    height: 1em;
+    width: 1em;
   }
 }

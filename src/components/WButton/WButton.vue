@@ -1,5 +1,8 @@
 <template>
-  <button class="w-button" :class="cls" @click="onClick" :disabled="disabled">
+  <button class="w-button"
+          :class="[cls, computedProcessing ? 'is-loading' : '']"
+          :disabled="disabled"
+          @click="onClick">
     <slot></slot>
   </button>
 </template>
@@ -10,6 +13,7 @@
     props: {
       cls: String,
       disabled: Boolean,
+      processing: Boolean,
       onclick: {
         type: Function,
         default: null
@@ -17,18 +21,23 @@
     },
     data() {
       return {
-        processing: false
+        scopedProcessing: false
       }
+    },
+    computed: {
+      computedProcessing: $e => $e.processing || $e.scopedProcessing
     },
     methods: {
       async onClick() {
-        if (this.processing) return
+        if (this.disabled || this.computedProcessing) return
 
-        this.processing = true
+        this.scopedProcessing = true
         if (this.onclick) {
           await this.onclick()
+        } else {
+          this.$emit('click')
         }
-        this.processing = false
+        this.scopedProcessing = false
       }
     }
   }
@@ -37,6 +46,7 @@
 <style lang="scss">
   .w-button {
     font-size: $size-5;
+    position: relative;
     border-radius: 5px;
     border: 1px solid gainsboro;
     padding: .5em 1em;
@@ -44,21 +54,9 @@
     outline: none;
     cursor: pointer;
     transition: background-color .2s, color .15s;
+    opacity: .9;
 
-    &:hover {
-      /*&.is-primary {
-        background-color: $white;
-        color: $primary;
-      }
-      &.is-red {
-        background-color: $white;
-        color: $red;
-      }
-      &.is-green {
-        background-color: $white;
-        color: $green;
-      }*/
-    }
+    // Basic
     &.is-primary {
       background-color: $primary;
       color: $white;
@@ -74,19 +72,100 @@
       color: $white;
       border: 1px solid $green;
     }
+    // Outlined
     &.is-outlined {
-      &:not(:hover) {
+      &.is-primary {
+        background-color: $white;
+        color: $primary;
+      }
+      &.is-red {
+        background-color: $white;
+        color: $red;
+      }
+      &.is-green {
+        background-color: $white;
+        color: $green;
+      }
+    }
+    // Rounded
+    &.is-rounded {
+      border-radius: 50000000px;
+    }
+    &[disabled] {
+      opacity: .4;
+      cursor: not-allowed;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:hover {
+        // Basic
         &.is-primary {
-          background-color: $white;
-          color: $primary;
+          background-color: $primary;
+          color: $white;
+          border: 1px solid $primary;
         }
         &.is-red {
-          background-color: $white;
-          color: $red;
+          background-color: $red;
+          color: $white;
+          border: 1px solid $red;
         }
         &.is-green {
-          background-color: $white;
-          color: $green;
+          background-color: $green;
+          color: $white;
+          border: 1px solid $green;
+        }
+        // Outlined
+        &.is-outlined {
+          &.is-primary {
+            background-color: $white;
+            color: $primary;
+          }
+          &.is-red {
+            background-color: $white;
+            color: $red;
+          }
+          &.is-green {
+            background-color: $white;
+            color: $green;
+          }
+        }
+      }
+    }
+    &:hover {
+      // Basic
+      &.is-primary {
+        $base: darken($primary, 8%);
+        background-color: $base;
+        border: 1px solid $base;
+      }
+      &.is-red {
+        $base: darken($red, 8%);
+        background-color: $base;
+        border: 1px solid $base;
+      }
+      &.is-green {
+        $base: darken($green, 8%);
+        background-color: $base;
+        border: 1px solid $base;
+      }
+      // Outlined
+      &.is-outlined,
+      &.is-loading {
+        &.is-primary {
+          background-color: $primary;
+          color: $white;
+          border: 1px solid $primary;
+        }
+        &.is-red {
+          background-color: $red;
+          color: $white;
+          border: 1px solid $red;
+        }
+        &.is-green {
+          background-color: $green;
+          color: $white;
+          border: 1px solid $green;
         }
       }
     }
