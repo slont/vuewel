@@ -23,7 +23,7 @@ input, textarea {
   font-size: $size-base;
 }
 
-.is-field {
+.field {
   &:not(:last-child) {
     margin-bottom: .5rem;
   }
