@@ -1,12 +1,9 @@
 import {configure} from '@storybook/vue';
 
 import Vue from 'vue';
+import Vuewel from '../src/index.js'
 
-// Import your custom components.
-// import WButton from '../src/components/WButton';
-
-// Register custom components.
-// Vue.component('test', WButton);
+Vue.use(Vuewel)
 
 function loadStories() {
   // You can require as many stories as you need.

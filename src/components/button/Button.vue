@@ -9,7 +9,7 @@
 
 <script>
   export default {
-    name: 'w-button',
+    name: 'WButton',
     props: {
       cls: String,
       disabled: Boolean,

@@ -4,9 +4,7 @@ import {storiesOf} from '@storybook/vue';
 import {action} from '@storybook/addon-actions';
 import {linkTo} from '@storybook/addon-links';
 
-import MyButton from './MyButton.vue';
 import Welcome from './Welcome.vue';
-import WButton from '../components/WButton';
 
 storiesOf('Welcome', module).add('to Storybook', () => ({
   components: {Welcome},
@@ -16,7 +14,6 @@ storiesOf('Welcome', module).add('to Storybook', () => ({
 
 storiesOf('Button', module)
     .add('Styles', () => ({
-      components: {WButton},
       template: `
 <div>
   <div class="is-field">
@@ -68,7 +65,6 @@ storiesOf('Button', module)
       methods: {action: linkTo('Button')},
     }))
     .add('Click action', () => ({
-      components: {WButton},
       data() {
         return {
           count: 0
