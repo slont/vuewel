@@ -2,8 +2,8 @@
   <transition :name="transition">
     <div class="w-modal" v-if="active">
       <div class="modal-backdrop" v-if="!full" @click="onClickBackdrop"></div>
-      <div class="modal-container" :style="{width: `${width}px`, height: `${height}px`}">
-        <slot></slot>
+      <div class="modal-container" :style="{minWidth: `${width}px`, maxHeight: `${height}px`}">
+        <slot/>
       </div>
     </div>
   </transition>
@@ -13,6 +13,10 @@
   export default {
     name: 'WModal',
     props: {
+      name: {
+        type: String,
+        default: ['', '', '', '', '', '', '', '', ''].reduce((y, x) => y + "abcdefghijklmnopqrstuvwxyz0123456789"[Math.floor(Math.random() * 36)])
+      },
       width: {
         type: Number,
         default: 320
@@ -33,18 +37,29 @@
         transition: 'transition'
       }
     },
+    created() {
+      this.registerWModal(this.name, this.activate, this.deactivate)
+    },
+    destroyed() {
+      this.unregisterWModal(this.name)
+    },
     methods: {
-      open() {
+      activate() {
         this.active = true
-        this.openWModal(this.close)
+      },
+      deactivate() {
+        this.active = false
+      },
+      open() {
+        this.openWModal(this.name)
+      },
+      close() {
+        this.closeWModal(this.name)
+        this.$emit('close')
       },
       onClickBackdrop() {
         if (!this.canClose) return
-        this.closeWModal()
-      },
-      close() {
-        this.active = false
-        this.$emit('close')
+        this.closeWModal(this.name)
       }
     }
   }
@@ -80,13 +95,17 @@
       .modal-head {
         padding: .5rem;
         text-align: center;
+        flex-basis: 32px
       }
       .modal-content {
-        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
         padding: .5rem .75rem;
       }
       .modal-foot {
         padding: .5rem;
+        flex-basis: 32px
       }
     }
     .modal-backdrop {

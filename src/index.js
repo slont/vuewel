@@ -16,27 +16,35 @@ const Vuewel = {
     Vue.mixin({
       data() {
         return {
-          openedWModals: []
+          wModals: {},
+          openedWModalCount: 0
         }
       },
       methods: {
-       openWModal(closeFunc) {
-          const body = document.body
+        registerWModal(ref, open, close) {
+          if (!ref || !open || !close) return
 
-         if (this.openedWModals.length) {
-           body.classList.add('has-opened-modal')
-         }
-         if (closeFunc) {
-           this.openedWModals.push(closeFunc)
-         }
+          this.wModals[ref] = {open, close}
         },
-        closeWModal() {
-          const body = document.body
-
-          if (this.openedWModals.length) {
-            const func = this.openedWModals.pop()
-            func()
-            body.classList.remove('has-opened-modal')
+        unregisterWModal(ref) {
+          delete this.wModals[ref]
+        },
+        openWModal(ref) {
+          if (!this.openedWModalCount) {
+            document.body.classList.add('has-opened-modal')
+          }
+          if (this.wModals[ref]) {
+            this.wModals[ref].open()
+            this.openedWModalCount++
+          }
+        },
+        closeWModal(ref) {
+          if (this.wModals[ref]) {
+            this.wModals[ref].close()
+            this.openedWModalCount--
+          }
+          if (!this.openedWModalCount) {
+            document.body.classList.remove('has-opened-modal')
           }
         }
       }
