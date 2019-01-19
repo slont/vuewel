@@ -4,7 +4,7 @@ const {VueLoaderPlugin} = require('vue-loader')
 
 const root = './src/components'
 const entry = {
-  'index': './src/index.js',
+  'vuewel': './src/index.js',
   'components/index': [`${root}/index`]
 }
 const files = fs.readdirSync(root)
@@ -21,7 +21,7 @@ module.exports = {
   entry,
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].min.js',
+    filename: '[name].js',
     library: 'Vuewel'
   },
   module: {
