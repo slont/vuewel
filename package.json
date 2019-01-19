@@ -1,7 +1,8 @@
 {
   "name": "vuewel",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "license": "MIT",
+  "author": "Slont",
   "keywords": [
     "vuewel",
     "vue",
@@ -13,9 +14,9 @@
     "src",
     "types/*.d.ts"
   ],
-  "main": "dist/vuewel.min.js",
+  "main": "dist/vuewel.js",
   "typings": "types/index.d.ts",
-  "unpkg": "dist/vuewel.min.js",
+  "unpkg": "dist/vuewel.js",
   "dependencies": {
     "vue": "^2.5.17",
     "vue-class-component": "^6.0.0",
