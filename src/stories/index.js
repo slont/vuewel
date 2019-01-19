@@ -1,7 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope, react/no-this-in-sfc */
 
 import {storiesOf} from '@storybook/vue';
-import {action} from '@storybook/addon-actions';
 import {linkTo} from '@storybook/addon-links';
 
 import Welcome from './Welcome.vue';
@@ -187,6 +186,20 @@ storiesOf('Modal', module)
           this.$refs[ref].close()
         }
       }
+    }));
+
+
+storiesOf('Toolbar', module)
+    .add('Styles', () => ({
+      template: `
+<div>
+  <w-toolbar>
+    <div>タイトル</div>
+    <div>タイトル</div>
+    <div>タイトル</div>
+  </w-toolbar>
+</div>`,
+      methods: {action: linkTo('Toolbar')},
     }));
 
 /* eslint-enable react/react-in-jsx-scope */

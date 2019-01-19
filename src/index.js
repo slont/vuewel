@@ -3,7 +3,7 @@ import './scss/global.scss'
 import * as components from './components'
 
 import config, {setOptions} from './utils/config'
-import {use} from './utils/plugins'
+import {use, registerComponentProgrammatic} from './utils/plugins'
 
 const Vuewel = {
   install: (Vue, options = {}) => {
@@ -13,6 +13,14 @@ const Vuewel = {
     for (let componentKey in components) {
       Vue.use(components[componentKey])
     }
+    // Config component
+    const VuewelProgrammatic = {
+      setOptions(options) {
+        setOptions(Object.assign(config, options))
+      }
+    }
+    registerComponentProgrammatic(Vue, '$vuewel', VuewelProgrammatic)
+
     Vue.mixin({
       data() {
         return {

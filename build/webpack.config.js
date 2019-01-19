@@ -21,8 +21,10 @@ module.exports = {
   entry,
   output: {
     path: path.resolve(__dirname, '../dist'),
+    publicPath: '/',
     filename: '[name].js',
-    library: 'Vuewel'
+    library: 'Vuewel',
+    libraryTarget: "umd"
   },
   module: {
     rules: [
@@ -36,7 +38,19 @@ module.exports = {
       },
       {
         test: /\.vue$/,
-        use: 'vue-loader'
+        loader: 'vue-loader',
+        options: {
+          loaders: ['style-loader', 'css-loader', 'sass-loader',
+            {
+              loader: 'sass-resources-loader',
+              options: {
+                resources: ['./src/scss/global.scss'],
+                include: path.resolve(__dirname, '../'),
+                minimize: true,
+                sourceMap: true
+              }
+            }]
+        }
       },
       {
         test: /\.(css|scss)$/,
@@ -52,8 +66,20 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    vue: {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
+      root: 'Vue'
+    }
+  },
   resolve: {
-    extensions: ['.js', '.ts', '.vue', '.json', 'scss']
+    extensions: ['.js', '.ts', '.vue', '.json', 'scss'],
+    alias: {
+      'vue$': 'vue/dist/vue.esm.js',
+      '@components': path.resolve(__dirname, '../src/components')
+    }
   },
   plugins: [new VueLoaderPlugin()]
 }
