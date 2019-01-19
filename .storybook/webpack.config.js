@@ -1,12 +1,23 @@
 const path = require('path');
 
-module.exports = (baseConfig, env, defaultConfig) => {
-  defaultConfig.module.rules.push({
-    test: /\.scss$/,
-    loaders: ["style-loader", "css-loader", "sass-loader"],
-    include: path.resolve(__dirname, "../")
-  })
-  defaultConfig.resolve.extensions.push(".scss")
-
-  return defaultConfig
+module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.(css|scss)$/,
+        loaders: ["style-loader", "css-loader", "sass-loader",
+          {
+            loader: "sass-resources-loader",
+            options: {
+              resources: ['./src/scss/global.scss'],
+              include: path.resolve(__dirname, '../')
+            }
+          }],
+        include: path.resolve(__dirname, "../")
+      }
+    ]
+  },
+  resolve: {
+    extensions: ['.js', '.vue', '.json', 'scss']
+  }
 }
