@@ -2,7 +2,7 @@
   "name": "vuewel",
   "version": "0.1.0",
   "scripts": {
-    "build": "webpack build/webpack.config.js",
+    "build": "webpack --config build/webpack.config.js --mode production",
     "storybook": "start-storybook -p 9001 -c .storybook",
     "buid-storybook": "build-storybook -s public"
   },
@@ -28,6 +28,7 @@
     "sass-loader": "^7.0.1",
     "sass-resources-loader": "^2.0.0",
     "style-loader": "^0.23.1",
+    "ts-loader": "^5.3.3",
     "typescript": "^3.0.0",
     "vue-loader": "^15.5.1",
     "vue-style-loader": "^4.1.2",
