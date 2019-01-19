@@ -10,7 +10,6 @@ $tabs-link-active-border-bottom-color: $primary;
 $tabs-link-active-color: $primary;
 $tabs-toggle-link-active-background-color: $primary;
 $tabs-toggle-link-active-border-color: $primary;
-$modal-card-head-padding: .75rem 1rem;
 
 $size-span: .125rem;
 $size-base: 1rem;
@@ -30,5 +29,15 @@ $header-height: 40px;
 
 $tabs-border-bottom-width: 3px;
 $tabs-border-bottom-color: $transparent;
-$modal-card-head-background-color: white;
+$modal-radius: 4px;
+$modal-background-color: white;
 $modal-card-body-padding: 1rem .75rem;
+
+@keyframes spinAround {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(359deg)
+  }
+}
