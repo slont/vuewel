@@ -7,8 +7,9 @@ import Welcome from './Welcome.vue';
 import ButtonStory from './button'
 import ModalStory from './modal'
 import ToolbarStory from './toolbar'
-import ColumnStory from './column'
+import ColumnsStory from './columns'
 import IconStory from './icon'
+import CardStory from './card'
 
 storiesOf('Welcome', module).add('to Storybook', () => ({
   components: {Welcome},
@@ -29,11 +30,14 @@ storiesOf('Toolbar', module)
     .add('2 rows', () => ToolbarStory.story2)
     .add('Scrollable 3 rows', () => ToolbarStory.story3)
 
-storiesOf('Column', module)
-    .add('Size', () => ColumnStory.story1)
-    .add('Multi', () => ColumnStory.story2)
+storiesOf('Columns', module)
+    .add('Size', () => ColumnsStory.story1)
+    .add('Multi', () => ColumnsStory.story2)
 
 storiesOf('Icon', module)
     .add('Basic', () => IconStory.story1)
+
+storiesOf('Card', module)
+    .add('Basic', () => CardStory.story1)
 
 /* eslint-enable react/react-in-jsx-scope */

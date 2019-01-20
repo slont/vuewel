@@ -16,13 +16,16 @@
 <style lang="scss">
   .w-columns {
     display: flex;
+    margin: -.5rem;
 
     @function size($val) {
       @return calc(100% / 12 * #{$val})
     }
     > * {
+      flex: none;
       height: 100%;
       width: 100%;
+      padding: .5rem;
     }
     > .is-1 {
       width: size(1);
@@ -34,7 +37,7 @@
       width: size(3);
     }
     > .is-4 {
-      width: size(4);
+      width: 33.33333%;
     }
     > .is-5 {
       width: size(5);

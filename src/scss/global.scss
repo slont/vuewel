@@ -18,6 +18,9 @@ body {
   .is-mini {
     font-size: $size-9;
   }
+  * {
+    box-sizing: border-box;
+  }
 }
 
 input, textarea {
@@ -75,4 +78,25 @@ input, textarea {
 }
 .has-bg-transparent {
   background-color: transparent;
+}
+
+.image {
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+  &.is-4by3 {
+    padding-top: 75%;
+  }
+  &.is-16by9 {
+    padding-top: 56.25%;
+  }
 }
