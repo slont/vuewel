@@ -1,4 +1,5 @@
 @import "./constants";
+@import "~swiper/dist/css/swiper.css";
 
 html {
   font-size: $size-base;
@@ -48,4 +49,30 @@ input, textarea {
     height: 1em;
     width: 1em;
   }
+}
+
+.has-centered {
+  align-items: center;
+  text-align: center;
+}
+.has-bg-primary {
+  background-color: $primary;
+}
+.has-bg-red {
+  background-color: red;
+}
+.has-bg-black {
+  background-color: black;
+}
+.has-bg-blue {
+  background-color: blue;
+}
+.has-bg-green {
+  background-color: green;
+}
+.has-bg-cyan {
+  background-color: cyan;
+}
+.has-bg-transparent {
+  background-color: transparent;
 }

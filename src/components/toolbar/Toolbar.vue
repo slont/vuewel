@@ -1,5 +1,5 @@
 <template>
-  <div class="w-toolbar">
+  <div class="w-toolbar" :style="{bottom: footer ? '0' : 'initial', top: !footer ? '0' : 'initial'}">
     <div class="w-toolbar-wrapper" :style="{maxWidth: `${width}px`}">
       <slot/>
     </div>
@@ -13,7 +13,8 @@
       width: {
         type: String,
         default: '1080'
-      }
+      },
+      footer: Boolean
     }
   }
 </script>
@@ -21,7 +22,6 @@
 <style lang="scss">
   .w-toolbar {
     position: fixed;
-    top: 0;
     left: 0;
     right: 0;
     height: 48px;
