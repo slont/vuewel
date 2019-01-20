@@ -1,8 +1,9 @@
 <template>
-  <div class="w-toolbar" :style="{bottom: footer ? '0' : 'initial', top: !footer ? '0' : 'initial'}">
-    <div class="w-toolbar-wrapper" :style="{maxWidth: `${width}px`}">
+  <div class="w-toolbar" :class="{'is-foot': foot}" :style="rootStyle">
+    <div class="w-toolbar-wrapper" :style="{maxWidth: `${width}px`}" v-if="1 === scopedRow">
       <slot/>
     </div>
+    <slot v-else/>
   </div>
 </template>
 
@@ -10,11 +11,45 @@
   export default {
     name: 'WToolbar',
     props: {
+      row: {
+        type: Number | String,
+        default: '1'
+      },
+      scrollTop: {
+        type: Number,
+        default: 0
+      },
       width: {
         type: String,
         default: '1080'
       },
-      footer: Boolean
+      height: {
+        type: String,
+        default: '48'
+      },
+      foot: Boolean
+    },
+    data() {
+      return {
+        scrolled: 0
+      }
+    },
+    computed: {
+      scopedRow: vm => Number(vm.row),
+      scrollableHeight: vm => vm.height * (vm.scopedRow - 1),
+      rootStyle: vm => ({
+        top: `-${Math.min(vm.scrolled, vm.scrollTop)}px`,
+        height: `${vm.height * vm.scopedRow}px`
+      })
+    },
+    watch: {
+      scrollTop(newValue, oldValue) {
+        if (newValue < oldValue) {
+          this.scrolled = Math.max(0, this.scrolled + newValue - oldValue)
+        } else {
+          this.scrolled = Math.min(this.scrollableHeight, this.scrolled + newValue - oldValue)
+        }
+      }
     }
   }
 </script>
@@ -24,9 +59,14 @@
     position: fixed;
     left: 0;
     right: 0;
-    height: 48px;
+    background-color: $toolbar-bg-color;
     box-shadow: 0 2px 3px rgba(black, .1), 0 0 0 1px rgba(black, .1);
+    z-index: 99;
 
+    &.is-foot {
+      top: initial;
+      bottom: 0;
+    }
     .w-toolbar-wrapper {
       display: flex;
       height: 100%;

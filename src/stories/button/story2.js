@@ -35,8 +35,7 @@ export default {
     }
     </pre>
   </div>
-</div>
-`,
+</div>`,
   methods: {
     async asyncAlert() {
       this.count++

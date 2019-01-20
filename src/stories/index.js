@@ -24,7 +24,9 @@ storiesOf('Modal', module)
     .add('Programmatic', () => ModalStory.story2)
 
 storiesOf('Toolbar', module)
-    .add('Styles', () => ToolbarStory.story1)
+    .add('Basic', () => ToolbarStory.story1)
+    .add('2 rows', () => ToolbarStory.story2)
+    .add('Scrollable 3 rows', () => ToolbarStory.story3)
 
 storiesOf('ColumnStory', module)
     .add('Size', () => ColumnStory.story1)

@@ -1,5 +1,3 @@
-import {linkTo} from '@storybook/addon-links'
-
 export default {
   template: `
 <div>
@@ -8,6 +6,5 @@ export default {
     <div>タイトル</div>
     <div>タイトル</div>
   </w-toolbar>
-</div>`,
-  methods: {action: linkTo('Toolbar')},
+</div>`
 }
