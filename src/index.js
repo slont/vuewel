@@ -1,7 +1,6 @@
 import './scss/global.scss'
-
+import './js/fontawesome/all.min.js'
 import * as components from './components'
-
 import config, {setOptions} from './utils/config'
 import {use, registerComponentProgrammatic} from './utils/plugins'
 

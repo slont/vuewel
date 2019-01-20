@@ -47,7 +47,7 @@
     position: relative;
     border-radius: 5px;
     border: 1px solid gainsboro;
-    padding: .5em 1em;
+    padding: .5em .875em;
     background-color: $white;
     outline: none;
     cursor: pointer;
@@ -170,8 +170,14 @@
       }
     }
 
-    > .icon:first-child:last-child {
-      margin: 0 -.5em;
+    > .w-icon:first-child:last-child {
+      margin: 0 -0.875em;
+    }
+    > .w-icon:first-child {
+      margin-right: .25em;
+    }
+    > .w-icon:last-child {
+      margin-left: .25em;
     }
   }
 </style>
