@@ -1,3 +1,4 @@
+import Vue from 'vue'
 import Modal from './Modal'
 
 import {use, registerComponent, registerComponentProgrammatic} from '../../utils/plugins'

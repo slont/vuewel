@@ -13,6 +13,6 @@ declare type ModalConfig = {
   canClose?: boolean | Array<any>
 }
 
-export declare const ModalProgrammatic: {
-  open: (params: ModalConfig | string) => any;
+export declare class ModalProgrammatic {
+  open: (params: ModalConfig | string) => any
 }
