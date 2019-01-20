@@ -1,12 +1,12 @@
 <template>
-  <div class="w-column" :style="{flexWrap: multi ? 'wrap' : 'nowrap'}">
+  <div class="w-columns" :style="{flexWrap: multi ? 'wrap' : 'nowrap'}">
     <slot></slot>
   </div>
 </template>
 
 <script>
   export default {
-    name: 'WColumn',
+    name: 'WColumns',
     props: {
       multi: Boolean
     }
@@ -14,7 +14,7 @@
 </script>
 
 <style lang="scss">
-  .w-column {
+  .w-columns {
     display: flex;
 
     @function size($val) {

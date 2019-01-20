@@ -1,10 +1,10 @@
-import Column from './Column'
+import Columns from './Columns'
 
 import {use, registerComponent} from '../../utils/plugins'
 
 const Plugin = {
   install(Vue) {
-    registerComponent(Vue, Column)
+    registerComponent(Vue, Columns)
   }
 }
 
