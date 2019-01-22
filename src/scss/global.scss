@@ -58,7 +58,7 @@ input, textarea {
   text-align: center;
 }
 .has-bg-primary {
-  background-color: $primary;
+  background-color: $primary !important;
 }
 .has-bg-red {
   background-color: red;
@@ -76,7 +76,7 @@ input, textarea {
   background-color: cyan;
 }
 .has-bg-transparent {
-  background-color: transparent;
+  background-color: transparent !important;
 }
 
 .image {

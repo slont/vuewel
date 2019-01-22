@@ -1,5 +1,5 @@
 <template>
-  <div class="w-toolbar" :class="{'is-foot': foot}" :style="rootStyle">
+  <div class="w-toolbar" :class="{'is-foot': foot, 'has-shadow': shadow}" :style="rootStyle">
     <div class="w-toolbar-wrapper" :style="{maxWidth: `${width}px`}" v-if="1 === scopedRow">
       <slot/>
     </div>
@@ -27,7 +27,11 @@
         type: String,
         default: '48'
       },
-      foot: Boolean
+      foot: Boolean,
+      shadow: {
+        type: Boolean,
+        default: true
+      }
     },
     data() {
       return {
@@ -60,7 +64,6 @@
     left: 0;
     right: 0;
     background-color: $toolbar-bg-color;
-    box-shadow: 0 2px 3px rgba(black, .1), 0 0 0 1px rgba(black, .1);
     z-index: 99;
 
     &.is-foot {
@@ -90,6 +93,9 @@
         padding: .5rem;
         justify-content: center;
       }
+    }
+    &.has-shadow {
+      box-shadow: 0 2px 3px rgba(black, .1), 0 0 0 1px rgba(black, .1);
     }
   }
 </style>
