@@ -4,6 +4,7 @@ import Toolbar from './toolbar'
 import Columns from './columns'
 import Icon from './icon'
 import Card from './card'
+import Navtabs from './navtabs'
 
 export {
   Button,
@@ -11,5 +12,6 @@ export {
   Toolbar,
   Columns,
   Icon,
-  Card
+  Card,
+  Navtabs
 }

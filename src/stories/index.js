@@ -8,6 +8,7 @@ import Welcome from './Welcome.vue';
 import ButtonStory from './button'
 import ModalStory from './modal'
 import ToolbarStory from './toolbar'
+import NavtabsStory from './navtabs'
 import ColumnsStory from './columns'
 import IconStory from './icon'
 import CardStory from './card'
@@ -30,6 +31,9 @@ storiesOf('Toolbar', module)
     .add('Basic', () => ToolbarStory.story1)
     .add('2 rows', () => ToolbarStory.story2)
     .add('Scrollable 3 rows', () => ToolbarStory.story3)
+
+storiesOf('Navtabs', module)
+    .add('Basic', () => NavtabsStory.story1)
 
 storiesOf('Columns', module)
     .add('Size', () => ColumnsStory.story1)
