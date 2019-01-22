@@ -2,6 +2,7 @@
 
 import {storiesOf} from '@storybook/vue';
 import {linkTo} from '@storybook/addon-links';
+import '../scss/global.scss'
 
 import Welcome from './Welcome.vue';
 import ButtonStory from './button'

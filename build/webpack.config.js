@@ -40,16 +40,7 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: ['style-loader', 'css-loader', 'sass-loader',
-            {
-              loader: 'sass-resources-loader',
-              options: {
-                resources: ['./src/scss/global.scss'],
-                include: path.resolve(__dirname, '../'),
-                minimize: true,
-                sourceMap: true
-              }
-            }]
+          loaders: ['style-loader', 'css-loader', 'sass-loader']
         }
       },
       {
@@ -58,7 +49,7 @@ module.exports = {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: ['./src/scss/global.scss'],
+              resources: ['./src/scss/constants.scss'],
               include: path.resolve(__dirname, '../')
             }
           }],
