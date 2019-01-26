@@ -1,0 +1,39 @@
+.w-toolbar {
+  position: fixed;
+  left: 0;
+  right: 0;
+  background-color: $toolbar-bg-color;
+  z-index: 99;
+
+  &.is-foot {
+    top: initial;
+    bottom: 0;
+  }
+  .w-toolbar-wrapper {
+    display: flex;
+    height: 100%;
+    margin: auto;
+
+    > * {
+      display: flex;
+      align-items: center;
+    }
+    > :first-child {
+      flex-basis: 20%;
+      padding-left: .5rem;
+    }
+    > :last-child {
+      flex-basis: 20%;
+      padding: .5rem;
+      justify-content: flex-end;
+    }
+    > :first-child + :not(:last-child) {
+      flex: 1;
+      padding: .5rem;
+      justify-content: center;
+    }
+  }
+  &.has-shadow {
+    box-shadow: 0 2px 3px rgba(black, .1), 0 0 0 1px rgba(black, .1);
+  }
+}
