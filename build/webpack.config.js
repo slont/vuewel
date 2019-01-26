@@ -19,12 +19,16 @@ files.forEach(component => {
 module.exports = {
   mode: 'production',
   entry,
+  optimization: {
+    minimize: false
+  },
   output: {
     path: path.resolve(__dirname, '../dist'),
     publicPath: '/',
     filename: '[name].js',
     library: 'Vuewel',
-    libraryTarget: "umd"
+    libraryTarget: 'umd',
+    globalObject: '(typeof window !== \'undefined\' ? window : this)'
   },
   module: {
     rules: [
@@ -40,12 +44,12 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         options: {
-          loaders: ['style-loader', 'css-loader', 'sass-loader']
+          loaders: ['isomorphic-style-loader', 'css-loader', 'sass-loader']
         }
       },
       {
         test: /\.(css|scss)$/,
-        loaders: ['style-loader', 'css-loader', 'sass-loader',
+        loaders: ['isomorphic-style-loader', 'css-loader', 'sass-loader',
           {
             loader: 'sass-resources-loader',
             options: {

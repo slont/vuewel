@@ -1,1 +1,504 @@
-!function(t,n){"object"==typeof exports&&"object"==typeof module?module.exports=n(require("vue")):"function"==typeof define&&define.amd?define(["vue"],n):"object"==typeof exports?exports.Vuewel=n(require("vue")):t.Vuewel=n(t.Vue)}(window,function(t){return function(t){var n={};function e(o){if(n[o])return n[o].exports;var r=n[o]={i:o,l:!1,exports:{}};return t[o].call(r.exports,r,r.exports,e),r.l=!0,r.exports}return e.m=t,e.c=n,e.d=function(t,n,o){e.o(t,n)||Object.defineProperty(t,n,{enumerable:!0,get:o})},e.r=function(t){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(t,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(t,"__esModule",{value:!0})},e.t=function(t,n){if(1&n&&(t=e(t)),8&n)return t;if(4&n&&"object"==typeof t&&t&&t.__esModule)return t;var o=Object.create(null);if(e.r(o),Object.defineProperty(o,"default",{enumerable:!0,value:t}),2&n&&"string"!=typeof t)for(var r in t)e.d(o,r,function(n){return t[n]}.bind(null,r));return o},e.n=function(t){var n=t&&t.__esModule?function(){return t.default}:function(){return t};return e.d(n,"a",n),n},e.o=function(t,n){return Object.prototype.hasOwnProperty.call(t,n)},e.p="/",e(e.s=41)}({0:function(t,n,e){"use strict";e.d(n,"c",function(){return o}),e.d(n,"a",function(){return r}),e.d(n,"b",function(){return i});const o=t=>{"undefined"!=typeof window&&window.Vue&&window.Vue.use(t)},r=(t,n)=>{t.component(n.name,n)},i=(t,n,e)=>{t.prototype[n]=e}},1:function(t,n,e){"use strict";function o(t,n,e,o,r,i,a,c){var s,u="function"==typeof t?t.options:t;if(n&&(u.render=n,u.staticRenderFns=e,u._compiled=!0),o&&(u.functional=!0),i&&(u._scopeId="data-v-"+i),a?(s=function(t){(t=t||this.$vnode&&this.$vnode.ssrContext||this.parent&&this.parent.$vnode&&this.parent.$vnode.ssrContext)||"undefined"==typeof __VUE_SSR_CONTEXT__||(t=__VUE_SSR_CONTEXT__),r&&r.call(this,t),t&&t._registeredComponents&&t._registeredComponents.add(a)},u._ssrRegister=s):r&&(s=c?function(){r.call(this,this.$root.$options.shadowRoot)}:r),s)if(u.functional){u._injectStyles=s;var d=u.render;u.render=function(t,n){return s.call(n),d(t,n)}}else{var l=u.beforeCreate;u.beforeCreate=l?[].concat(l,s):[s]}return{exports:t,options:u}}e.d(n,"a",function(){return o})},12:function(n,e){n.exports=t},14:function(t,n,e){"use strict";e.r(n);var o=e(12),r=e.n(o),i=function(){var t=this,n=t.$createElement,e=t._self._c||n;return e("transition",{attrs:{name:t.transition}},[t.active?e("div",{staticClass:"w-modal"},[t.full?t._e():e("div",{staticClass:"modal-backdrop",on:{click:t.onClickBackdrop}}),t._v(" "),t.component?e(t.component,t._g(t._b({tag:"component",style:{minWidth:t.width+"px",maxHeight:t.height+"px"},on:{close:t.close}},"component",t.props,!1),t.events)):e("div",{staticClass:"modal-container"},[t.content?e("div",{domProps:{innerHTML:t._s(t.content)}}):t._t("default")],2)],1):t._e()])};i._withStripped=!0;var a={name:"WModal",props:{programmatic:Boolean,component:[Object,Function],content:String,props:Object,events:Object,name:{type:String,default:["","","","","","","","",""].reduce((t,n)=>t+"abcdefghijklmnopqrstuvwxyz0123456789"[Math.floor(36*Math.random())])},width:{type:Number,default:320},height:{type:Number,default:480},canClose:{type:Boolean,default:!0},full:Boolean,scroll:{type:String,default:"clip",validator:t=>["clip","keep"].indexOf(t)>=0}},data:()=>({active:!1,transition:"transition"}),created(){this.registerWModal(this.name,this.activate,this.deactivate)},beforeMount(){this.programmatic&&document.body.appendChild(this.$el)},mounted(){this.programmatic?this.active=!0:this.active&&this.handleScroll()},destroyed(){this.unregisterWModal(this.name)},methods:{activate(){this.active=!0},deactivate(){this.active=!1},open(){this.openWModal(this.name)},close(){this.closeWModal(this.name),this.$emit("close")},onClickBackdrop(){this.canClose&&this.closeWModal(this.name)},handleScroll(){"undefined"!=typeof window&&("clip"!==this.scroll?(this.savedScrollTop=this.savedScrollTop?this.savedScrollTop:document.documentElement.scrollTop,this.isActive?document.body.classList.add("is-noscroll"):document.body.classList.remove("is-noscroll"),this.isActive?document.body.style.top=`-${this.savedScrollTop}px`:(document.documentElement.scrollTop=this.savedScrollTop,document.body.style.top=null,this.savedScrollTop=null)):this.isActive?document.documentElement.classList.add("is-clipped"):document.documentElement.classList.remove("is-clipped"))}}},c=(e(22),e(1)),s=Object(c.a)(a,i,[],!1,null,null,null);s.options.__file="src/components/modal/Modal.vue";var u=s.exports,d=e(0);const l={open(t){let n,e;"string"==typeof t&&(n=t);const o={programmatic:!0,content:n};t.parent&&(e=t.parent,delete t.parent);const i=Object.assign(o,t);return new(("undefined"!=typeof window&&window.Vue?window.Vue:r.a).extend(u))({parent:e,el:document.createElement("div"),propsData:i})}},f={install(t){Object(d.a)(t,u),Object(d.b)(t,"$modal",l)}};Object(d.c)(f);n.default=f},2:function(t,n,e){"use strict";t.exports=function(t){var n=[];return n.toString=function(){return this.map(function(n){var e=function(t,n){var e=t[1]||"",o=t[3];if(!o)return e;if(n&&"function"==typeof btoa){var r=(a=o,"/*# sourceMappingURL=data:application/json;charset=utf-8;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(a))))+" */"),i=o.sources.map(function(t){return"/*# sourceURL="+o.sourceRoot+t+" */"});return[e].concat(i).concat([r]).join("\n")}var a;return[e].join("\n")}(n,t);return n[2]?"@media "+n[2]+"{"+e+"}":e}).join("")},n.i=function(t,e){"string"==typeof t&&(t=[[null,t,""]]);for(var o={},r=0;r<this.length;r++){var i=this[r][0];null!=i&&(o[i]=!0)}for(r=0;r<t.length;r++){var a=t[r];null!=a[0]&&o[a[0]]||(e&&!a[2]?a[2]=e:e&&(a[2]="("+a[2]+") and ("+e+")"),n.push(a))}},n}},22:function(t,n,e){"use strict";var o=e(6);e.n(o).a},23:function(t,n,e){(t.exports=e(2)(!1)).push([t.i,"@keyframes spinAround {\nfrom {\n    transform: rotate(0deg);\n}\nto {\n    transform: rotate(359deg);\n}\n}\n.w-modal {\n  position: fixed;\n  top: 0;\n  right: 0;\n  bottom: 0;\n  left: 0;\n  display: flex;\n  z-index: 100;\n}\n.w-modal .modal-container {\n    display: flex;\n    flex-direction: column;\n    margin: auto;\n    z-index: 0;\n}\n.w-modal .modal-container > * {\n      background-color: white;\n}\n.w-modal .modal-container > :first-child {\n      border-top-left-radius: 4px;\n      border-top-right-radius: 4px;\n}\n.w-modal .modal-container > :last-child {\n      border-bottom-left-radius: 4px;\n      border-bottom-right-radius: 4px;\n}\n.w-modal .modal-container .modal-head {\n      padding: .5rem;\n      text-align: center;\n      flex-basis: 32px;\n}\n.w-modal .modal-container .modal-content {\n      display: flex;\n      flex-direction: column;\n      overflow-y: scroll;\n      padding: .5rem .75rem;\n}\n.w-modal .modal-container .modal-foot {\n      padding: .5rem;\n      flex-basis: 32px;\n}\n.w-modal .modal-backdrop {\n    position: absolute;\n    top: 0;\n    right: 0;\n    bottom: 0;\n    left: 0;\n    background-color: rgba(0, 0, 0, 0.7);\n}\n.w-modal.transition-enter-active, .w-modal.transition-leave-active {\n    transition: opacity 100ms ease-out;\n}\n.w-modal.transition-enter-active .modal-container,\n    .w-modal.transition-enter-active .modal-container, .w-modal.transition-leave-active .modal-container,\n    .w-modal.transition-leave-active .modal-container {\n      transition: transform 150ms ease-out;\n}\n.w-modal.transition-enter, .w-modal.transition-leave-active {\n    opacity: 0;\n}\n.w-modal.transition-enter .modal-container,\n    .w-modal.transition-enter .modal-container, .w-modal.transition-leave-active .modal-container,\n    .w-modal.transition-leave-active .modal-container {\n      transform: scale(0.95);\n}\n",""])},3:function(t,n,e){var o,r,i={},a=(o=function(){return window&&document&&document.all&&!window.atob},function(){return void 0===r&&(r=o.apply(this,arguments)),r}),c=function(t){var n={};return function(t,e){if("function"==typeof t)return t();if(void 0===n[t]){var o=function(t,n){return n?n.querySelector(t):document.querySelector(t)}.call(this,t,e);if(window.HTMLIFrameElement&&o instanceof window.HTMLIFrameElement)try{o=o.contentDocument.head}catch(t){o=null}n[t]=o}return n[t]}}(),s=null,u=0,d=[],l=e(4);function f(t,n){for(var e=0;e<t.length;e++){var o=t[e],r=i[o.id];if(r){r.refs++;for(var a=0;a<r.parts.length;a++)r.parts[a](o.parts[a]);for(;a<o.parts.length;a++)r.parts.push(w(o.parts[a],n))}else{var c=[];for(a=0;a<o.parts.length;a++)c.push(w(o.parts[a],n));i[o.id]={id:o.id,refs:1,parts:c}}}}function p(t,n){for(var e=[],o={},r=0;r<t.length;r++){var i=t[r],a=n.base?i[0]+n.base:i[0],c={css:i[1],media:i[2],sourceMap:i[3]};o[a]?o[a].parts.push(c):e.push(o[a]={id:a,parts:[c]})}return e}function m(t,n){var e=c(t.insertInto);if(!e)throw new Error("Couldn't find a style target. This probably means that the value for the 'insertInto' parameter is invalid.");var o=d[d.length-1];if("top"===t.insertAt)o?o.nextSibling?e.insertBefore(n,o.nextSibling):e.appendChild(n):e.insertBefore(n,e.firstChild),d.push(n);else if("bottom"===t.insertAt)e.appendChild(n);else{if("object"!=typeof t.insertAt||!t.insertAt.before)throw new Error("[Style Loader]\n\n Invalid value for parameter 'insertAt' ('options.insertAt') found.\n Must be 'top', 'bottom', or Object.\n (https://github.com/webpack-contrib/style-loader#insertat)\n");var r=c(t.insertAt.before,e);e.insertBefore(n,r)}}function v(t){if(null===t.parentNode)return!1;t.parentNode.removeChild(t);var n=d.indexOf(t);n>=0&&d.splice(n,1)}function h(t){var n=document.createElement("style");if(void 0===t.attrs.type&&(t.attrs.type="text/css"),void 0===t.attrs.nonce){var o=function(){0;return e.nc}();o&&(t.attrs.nonce=o)}return b(n,t.attrs),m(t,n),n}function b(t,n){Object.keys(n).forEach(function(e){t.setAttribute(e,n[e])})}function w(t,n){var e,o,r,i;if(n.transform&&t.css){if(!(i="function"==typeof n.transform?n.transform(t.css):n.transform.default(t.css)))return function(){};t.css=i}if(n.singleton){var a=u++;e=s||(s=h(n)),o=y.bind(null,e,a,!1),r=y.bind(null,e,a,!0)}else t.sourceMap&&"function"==typeof URL&&"function"==typeof URL.createObjectURL&&"function"==typeof URL.revokeObjectURL&&"function"==typeof Blob&&"function"==typeof btoa?(e=function(t){var n=document.createElement("link");return void 0===t.attrs.type&&(t.attrs.type="text/css"),t.attrs.rel="stylesheet",b(n,t.attrs),m(t,n),n}(n),o=function(t,n,e){var o=e.css,r=e.sourceMap,i=void 0===n.convertToAbsoluteUrls&&r;(n.convertToAbsoluteUrls||i)&&(o=l(o));r&&(o+="\n/*# sourceMappingURL=data:application/json;base64,"+btoa(unescape(encodeURIComponent(JSON.stringify(r))))+" */");var a=new Blob([o],{type:"text/css"}),c=t.href;t.href=URL.createObjectURL(a),c&&URL.revokeObjectURL(c)}.bind(null,e,n),r=function(){v(e),e.href&&URL.revokeObjectURL(e.href)}):(e=h(n),o=function(t,n){var e=n.css,o=n.media;o&&t.setAttribute("media",o);if(t.styleSheet)t.styleSheet.cssText=e;else{for(;t.firstChild;)t.removeChild(t.firstChild);t.appendChild(document.createTextNode(e))}}.bind(null,e),r=function(){v(e)});return o(t),function(n){if(n){if(n.css===t.css&&n.media===t.media&&n.sourceMap===t.sourceMap)return;o(t=n)}else r()}}t.exports=function(t,n){if("undefined"!=typeof DEBUG&&DEBUG&&"object"!=typeof document)throw new Error("The style-loader cannot be used in a non-browser environment");(n=n||{}).attrs="object"==typeof n.attrs?n.attrs:{},n.singleton||"boolean"==typeof n.singleton||(n.singleton=a()),n.insertInto||(n.insertInto="head"),n.insertAt||(n.insertAt="bottom");var e=p(t,n);return f(e,n),function(t){for(var o=[],r=0;r<e.length;r++){var a=e[r];(c=i[a.id]).refs--,o.push(c)}t&&f(p(t,n),n);for(r=0;r<o.length;r++){var c;if(0===(c=o[r]).refs){for(var s=0;s<c.parts.length;s++)c.parts[s]();delete i[c.id]}}}};var g,x=(g=[],function(t,n){return g[t]=n,g.filter(Boolean).join("\n")});function y(t,n,e,o){var r=e?"":o.css;if(t.styleSheet)t.styleSheet.cssText=x(n,r);else{var i=document.createTextNode(r),a=t.childNodes;a[n]&&t.removeChild(a[n]),a.length?t.insertBefore(i,a[n]):t.appendChild(i)}}},4:function(t,n){t.exports=function(t){var n="undefined"!=typeof window&&window.location;if(!n)throw new Error("fixUrls requires window.location");if(!t||"string"!=typeof t)return t;var e=n.protocol+"//"+n.host,o=e+n.pathname.replace(/\/[^\/]*$/,"/");return t.replace(/url\s*\(((?:[^)(]|\((?:[^)(]+|\([^)(]*\))*\))*)\)/gi,function(t,n){var r,i=n.trim().replace(/^"(.*)"$/,function(t,n){return n}).replace(/^'(.*)'$/,function(t,n){return n});return/^(#|data:|http:\/\/|https:\/\/|file:\/\/\/|\s*$)/i.test(i)?t:(r=0===i.indexOf("//")?i:0===i.indexOf("/")?e+i:o+i.replace(/^\.\//,""),"url("+JSON.stringify(r)+")")})}},41:function(t,n,e){t.exports=e(14)},6:function(t,n,e){var o=e(23);"string"==typeof o&&(o=[[t.i,o,""]]);var r={hmr:!0,transform:void 0,insertInto:void 0};e(3)(o,r);o.locals&&(t.exports=o.locals)}})});
+(function webpackUniversalModuleDefinition(root, factory) {
+	if(typeof exports === 'object' && typeof module === 'object')
+		module.exports = factory(require("vue"));
+	else if(typeof define === 'function' && define.amd)
+		define(["vue"], factory);
+	else if(typeof exports === 'object')
+		exports["Vuewel"] = factory(require("vue"));
+	else
+		root["Vuewel"] = factory(root["Vue"]);
+})((typeof window !== 'undefined' ? window : this), function(__WEBPACK_EXTERNAL_MODULE__2__) {
+return /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, { enumerable: true, get: getter });
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// define __esModule on exports
+/******/ 	__webpack_require__.r = function(exports) {
+/******/ 		if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 			Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 		}
+/******/ 		Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 	};
+/******/
+/******/ 	// create a fake namespace object
+/******/ 	// mode & 1: value is a module id, require it
+/******/ 	// mode & 2: merge all properties of value into the ns
+/******/ 	// mode & 4: return value when already ns object
+/******/ 	// mode & 8|1: behave like require
+/******/ 	__webpack_require__.t = function(value, mode) {
+/******/ 		if(mode & 1) value = __webpack_require__(value);
+/******/ 		if(mode & 8) return value;
+/******/ 		if((mode & 4) && typeof value === 'object' && value && value.__esModule) return value;
+/******/ 		var ns = Object.create(null);
+/******/ 		__webpack_require__.r(ns);
+/******/ 		Object.defineProperty(ns, 'default', { enumerable: true, value: value });
+/******/ 		if(mode & 2 && typeof value != 'string') for(var key in value) __webpack_require__.d(ns, key, function(key) { return value[key]; }.bind(null, key));
+/******/ 		return ns;
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "/";
+/******/
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 17);
+/******/ })
+/************************************************************************/
+/******/ ({
+
+/***/ 0:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return use; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return registerComponent; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return registerComponentProgrammatic; });
+const use = (plugin) => {
+  if (typeof window !== 'undefined' && window.Vue) {
+    window.Vue.use(plugin)
+  }
+}
+
+const registerComponent = (Vue, component) => {
+  Vue.component(component.name, component)
+}
+
+const registerComponentProgrammatic = (Vue, property, component) => {
+  Vue.prototype[property] = component
+}
+
+
+/***/ }),
+
+/***/ 1:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode /* vue-cli only */
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 17:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(4);
+
+
+/***/ }),
+
+/***/ 2:
+/***/ (function(module, exports) {
+
+module.exports = __WEBPACK_EXTERNAL_MODULE__2__;
+
+/***/ }),
+
+/***/ 4:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
+// EXTERNAL MODULE: external {"commonjs":"vue","commonjs2":"vue","amd":"vue","root":"Vue"}
+var external_commonjs_vue_commonjs2_vue_amd_vue_root_Vue_ = __webpack_require__(2);
+var external_commonjs_vue_commonjs2_vue_amd_vue_root_Vue_default = /*#__PURE__*/__webpack_require__.n(external_commonjs_vue_commonjs2_vue_amd_vue_root_Vue_);
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/modal/Modal.vue?vue&type=template&id=177f8d4b&
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("transition", { attrs: { name: _vm.transition } }, [
+    _vm.active
+      ? _c(
+          "div",
+          { staticClass: "w-modal" },
+          [
+            !_vm.full
+              ? _c("div", {
+                  staticClass: "modal-backdrop",
+                  on: { click: _vm.onClickBackdrop }
+                })
+              : _vm._e(),
+            _vm._v(" "),
+            _vm.component
+              ? _c(
+                  _vm.component,
+                  _vm._g(
+                    _vm._b(
+                      {
+                        tag: "component",
+                        style: {
+                          minWidth: _vm.width + "px",
+                          maxHeight: _vm.height + "px"
+                        },
+                        on: { close: _vm.close }
+                      },
+                      "component",
+                      _vm.props,
+                      false
+                    ),
+                    _vm.events
+                  )
+                )
+              : _c(
+                  "div",
+                  { staticClass: "modal-container" },
+                  [
+                    _vm.content
+                      ? _c("div", {
+                          domProps: { innerHTML: _vm._s(_vm.content) }
+                        })
+                      : _vm._t("default")
+                  ],
+                  2
+                )
+          ],
+          1
+        )
+      : _vm._e()
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+// CONCATENATED MODULE: ./src/components/modal/Modal.vue?vue&type=template&id=177f8d4b&
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/modal/Modal.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var Modalvue_type_script_lang_js_ = ({
+  name: 'WModal',
+  props: {
+    programmatic: Boolean,
+    component: [Object, Function],
+    content: String,
+    props: Object,
+    events: Object,
+    name: {
+      type: String,
+      default: ['', '', '', '', '', '', '', '', ''].reduce((y, x) => y + "abcdefghijklmnopqrstuvwxyz0123456789"[Math.floor(Math.random() * 36)])
+    },
+    width: {
+      type: Number,
+      default: 320
+    },
+    height: {
+      type: Number,
+      default: 480
+    },
+    canClose: {
+      type: Boolean,
+      default: true
+    },
+    full: Boolean,
+    scroll: {
+      type: String,
+      default: 'clip',
+      validator: value => ['clip', 'keep'].indexOf(value) >= 0
+    }
+  },
+  data() {
+    return {
+      active: false,
+      transition: 'transition'
+    }
+  },
+  created() {
+    this.registerWModal(this.name, this.activate, this.deactivate)
+  },
+  beforeMount() {
+    this.programmatic && document.body.appendChild(this.$el)
+  },
+  mounted() {
+    if (this.programmatic) this.active = true
+    else if (this.active) this.handleScroll()
+  },
+  destroyed() {
+    this.unregisterWModal(this.name)
+  },
+  methods: {
+    activate() {
+      this.active = true
+    },
+    deactivate() {
+      this.active = false
+    },
+    open() {
+      this.openWModal(this.name)
+    },
+    close() {
+      this.closeWModal(this.name)
+      this.$emit('close')
+    },
+    onClickBackdrop() {
+      if (!this.canClose) return
+      this.closeWModal(this.name)
+    },
+    handleScroll() {
+      if (typeof window === 'undefined') return
+      if (this.scroll === 'clip') {
+        if (this.isActive) {
+          document.documentElement.classList.add('is-clipped')
+        } else {
+          document.documentElement.classList.remove('is-clipped')
+        }
+        return
+      }
+      this.savedScrollTop = !this.savedScrollTop
+          ? document.documentElement.scrollTop
+          : this.savedScrollTop
+      if (this.isActive) {
+        document.body.classList.add('is-noscroll')
+      } else {
+        document.body.classList.remove('is-noscroll')
+      }
+      if (this.isActive) {
+        document.body.style.top = `-${this.savedScrollTop}px`
+        return
+      }
+      document.documentElement.scrollTop = this.savedScrollTop
+      document.body.style.top = null
+      this.savedScrollTop = null
+    }
+  }
+});
+
+// CONCATENATED MODULE: ./src/components/modal/Modal.vue?vue&type=script&lang=js&
+ /* harmony default export */ var modal_Modalvue_type_script_lang_js_ = (Modalvue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(1);
+
+// CONCATENATED MODULE: ./src/components/modal/Modal.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  modal_Modalvue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/components/modal/Modal.vue"
+/* harmony default export */ var Modal = (component.exports);
+// EXTERNAL MODULE: ./src/utils/plugins.js
+var plugins = __webpack_require__(0);
+
+// CONCATENATED MODULE: ./src/components/modal/index.js
+
+
+
+
+
+const ModalProgrammatic = {
+  open(params) {
+    let content
+    let parent
+    if (typeof params === 'string') content = params
+
+    const defaultParam = {
+      programmatic: true,
+      content
+    }
+    if (params.parent) {
+      parent = params.parent
+      delete params.parent
+    }
+    const propsData = Object.assign(defaultParam, params)
+
+    const vm = typeof window !== 'undefined' && window.Vue ? window.Vue : external_commonjs_vue_commonjs2_vue_amd_vue_root_Vue_default.a
+    const ModalComponent = vm.extend(Modal)
+    return new ModalComponent({
+      parent,
+      el: document.createElement('div'),
+      propsData
+    })
+  }
+}
+
+const Plugin = {
+  install(Vue) {
+    Object(plugins["a" /* registerComponent */])(Vue, Modal)
+    Object(plugins["b" /* registerComponentProgrammatic */])(Vue, '$modal', ModalProgrammatic)
+  }
+}
+
+Object(plugins["c" /* use */])(Plugin)
+
+/* harmony default export */ var modal = __webpack_exports__["default"] = (Plugin);
+
+
+/***/ })
+
+/******/ });
+});
