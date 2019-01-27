@@ -7,6 +7,19 @@
   display: flex;
   z-index: 100;
 
+  &.fullscreen {
+    .modal-container,
+    .modal-content {
+      height: 100%;
+      width: 100%;
+    }
+    .modal-container {
+      > :first-child,
+      > :last-child {
+        border-radius: 0;
+      }
+    }
+  }
   .modal-container {
     display: flex;
     flex-direction: column;

@@ -692,7 +692,7 @@ render._withStripped = true
     scopedRow: vm => Number(vm.row),
     scrollableHeight: vm => vm.height * (vm.scopedRow - 1),
     rootStyle: vm => ({
-      top: `-${Math.min(vm.scrolled, vm.scrollTop)}px`,
+      top: vm.foot ? 'initial' : `-${Math.min(vm.scrolled, vm.scrollTop)}px`,
       height: `${vm.height * vm.scopedRow}px`
     })
   },
@@ -859,7 +859,14 @@ var render = function() {
   return _c(
     "span",
     { staticClass: "w-icon" },
-    [_vm.icon ? _c("i", { class: _vm.cls }) : _vm._t("default")],
+    [
+      _vm.icon
+        ? _c("i", {
+            class: _vm.cls,
+            style: { color: _vm.color ? _vm.color : "currentColor" }
+          })
+        : _vm._t("default")
+    ],
     2
   )
 }
@@ -883,7 +890,8 @@ render._withStripped = true
   props: {
     icon: String,
     size: String,
-    fw: Boolean
+    fw: Boolean,
+    color: String
   },
   computed: {
     cls: vm => [

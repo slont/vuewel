@@ -315,7 +315,7 @@ render._withStripped = true
     scopedRow: vm => Number(vm.row),
     scrollableHeight: vm => vm.height * (vm.scopedRow - 1),
     rootStyle: vm => ({
-      top: `-${Math.min(vm.scrolled, vm.scrollTop)}px`,
+      top: vm.foot ? 'initial' : `-${Math.min(vm.scrolled, vm.scrollTop)}px`,
       height: `${vm.height * vm.scopedRow}px`
     })
   },

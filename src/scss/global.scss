@@ -1,7 +1,15 @@
 @import "./constants";
 
 html {
-  font-size: $size-base;
+  font-family: $font;
+  font-size: 16px;
+  height: 100%;
+  word-spacing: 1px;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
 }
 
 body {
@@ -22,8 +30,61 @@ body {
   }
 }
 
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+}
+* {
+  position: relative;
+}
+
 input, textarea {
   font-size: $size-base;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+
+  li {
+    padding: .5rem;
+    cursor: pointer;
+  }
+}
+
+.input {
+  border: 1px solid gainsboro;
+  padding: .375rem;
+  border-radius: 6px;
+
+  &.has-icon-left {
+    margin-left: -2rem;
+    padding-left: 2rem;
+  }
+  &.has-icon-right {
+    margin-right: -2rem;
+    padding-right: 2rem;
+  }
+}
+
+.flexbox {
+  display: flex;
+  align-items: center;
+
+  > :not(:last-child) {
+    margin-right: .5rem;
+  }
+}
+
+.flexcolumn {
+  display: flex;
+  flex-direction: column;
+
+  > :not(:last-child) {
+    margin-bottom: .5rem;
+  }
 }
 
 .field {
@@ -53,12 +114,19 @@ input, textarea {
   }
 }
 
+.is-right {
+  margin-left: auto;
+}
+
 .has-centered {
   align-items: center;
   text-align: center;
 }
 .has-bg-primary {
   background-color: $primary !important;
+}
+.has-weak {
+  color: $weak !important;
 }
 .has-bg-red {
   background-color: red;
@@ -79,6 +147,10 @@ input, textarea {
   background-color: transparent !important;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .image {
   position: relative;
 
@@ -91,6 +163,9 @@ input, textarea {
     height: 100%;
     width: 100%;
     object-fit: cover;
+  }
+  &.is-1by1 {
+    padding-top: 100%;
   }
   &.is-4by3 {
     padding-top: 75%;

@@ -1,7 +1,7 @@
 <template>
   <span class="w-icon">
-    <i :class="cls" v-if="icon"></i>
-    <slot v-else/>
+    <i :class="cls" v-if="icon" :style="{color: color ? color : 'currentColor'}"></i>
+    <slot :style="{color: color ? color : 'currentColor'}" v-else/>
   </span>
 </template>
 
@@ -11,7 +11,8 @@
     props: {
       icon: String,
       size: String,
-      fw: Boolean
+      fw: Boolean,
+      color: String
     },
     computed: {
       cls: vm => [

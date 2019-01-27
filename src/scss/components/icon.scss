@@ -1,2 +1,8 @@
 .w-icon {
+  color: $icon-color;
+
+  &.is-left,
+  &.is-right {
+    z-index: 1;
+  }
 }

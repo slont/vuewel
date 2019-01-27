@@ -22,6 +22,7 @@
       transform: scale(0, 1);
       transform-origin: center top;
       transition: all .3s;
+      font-weight: bold;
     }
     &:hover:after {
       transform: scale(1, 1);

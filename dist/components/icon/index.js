@@ -244,7 +244,14 @@ var render = function() {
   return _c(
     "span",
     { staticClass: "w-icon" },
-    [_vm.icon ? _c("i", { class: _vm.cls }) : _vm._t("default")],
+    [
+      _vm.icon
+        ? _c("i", {
+            class: _vm.cls,
+            style: { color: _vm.color ? _vm.color : "currentColor" }
+          })
+        : _vm._t("default")
+    ],
     2
   )
 }
@@ -268,7 +275,8 @@ render._withStripped = true
   props: {
     icon: String,
     size: String,
-    fw: Boolean
+    fw: Boolean,
+    color: String
   },
   computed: {
     cls: vm => [
