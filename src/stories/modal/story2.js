@@ -1,11 +1,11 @@
 const ModalForm = {
   props: ['email', 'password'],
   template: `
-            <div class="modal-container" style="width: auto">
+            <div class="modal-container">
                     <header class="modal-head">
                         <span>Login</span>
                     </header>
-                    <section class="modal-body">
+                    <section class="modal-content">
                         <input
                                 type="email"
                                 :value="email"
@@ -42,6 +42,7 @@ export default {
     openModal() {
       this.$modal.open({
         parent: this,
+        // full: true,
         component: ModalForm
       })
     },

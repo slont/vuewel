@@ -256,7 +256,7 @@ var render = function() {
     _vm.active
       ? _c(
           "div",
-          { staticClass: "w-modal" },
+          { staticClass: "w-modal", class: { fullscreen: _vm.full } },
           [
             !_vm.full
               ? _c("div", {
@@ -272,10 +272,7 @@ var render = function() {
                     _vm._b(
                       {
                         tag: "component",
-                        style: {
-                          minWidth: _vm.width + "px",
-                          maxHeight: _vm.height + "px"
-                        },
+                        style: _vm.style,
                         on: { close: _vm.close }
                       },
                       "component",
@@ -310,7 +307,6 @@ render._withStripped = true
 // CONCATENATED MODULE: ./src/components/modal/Modal.vue?vue&type=template&id=177f8d4b&
 
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/modal/Modal.vue?vue&type=script&lang=js&
-//
 //
 //
 //
@@ -362,6 +358,9 @@ render._withStripped = true
       active: false,
       transition: 'transition'
     }
+  },
+  computed: {
+    style: vm => (vm.full ? {} : {minWidth: `${vm.width}px`, maxHeight: `${vm.height}px`})
   },
   created() {
     this.registerWModal(this.name, this.activate, this.deactivate)

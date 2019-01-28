@@ -1,10 +1,9 @@
 <template>
   <transition :name="transition">
-    <div class="w-modal" v-if="active">
+    <div class="w-modal" :class="{fullscreen: full}" v-if="active">
       <div class="modal-backdrop" v-if="!full" @click="onClickBackdrop"></div>
       <component v-bind="props" v-on="events" :is="component" v-if="component"
-                 :style="{minWidth: `${width}px`, maxHeight: `${height}px`}"
-                 @close="close"/>
+                 :style="style" @close="close"/>
       <div class="modal-container" v-else>
         <div v-html="content" v-if="content"/>
         <slot v-else/>
@@ -50,6 +49,9 @@
         active: false,
         transition: 'transition'
       }
+    },
+    computed: {
+      style: vm => (vm.full ? {} : {minWidth: `${vm.width}px`, maxHeight: `${vm.height}px`})
     },
     created() {
       this.registerWModal(this.name, this.activate, this.deactivate)
