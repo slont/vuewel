@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 14);
+/******/ 	return __webpack_require__(__webpack_require__.s = 20);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -222,44 +222,125 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 14:
+/***/ 20:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(9);
 
 
 /***/ }),
 
-/***/ 3:
+/***/ 9:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/button/Button.vue?vue&type=template&id=5975756f&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/rate/Rate.vue?vue&type=template&id=1914cd22&
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c(
-    "button",
+    "div",
     {
-      staticClass: "w-button",
-      class: { "is-loading": _vm.computedProcessing },
-      attrs: { disabled: _vm.disabled },
-      on: { click: _vm.onClick }
+      staticClass: "w-rate",
+      style: { minWidth: 1.5 * _vm.num + "em", maxWidth: 1.5 * _vm.num + "em" }
     },
-    [_vm._t("default")],
-    2
+    [
+      _c(
+        "div",
+        { staticClass: "stars-mask" },
+        _vm._l(_vm.num, function(i) {
+          return _c("w-icon", {
+            key: i,
+            attrs: { icon: "fas fa-star" },
+            nativeOn: {
+              mousemove: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseMove($event)
+              },
+              mouseleave: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseLeave($event)
+              },
+              mouseup: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseUp($event)
+              },
+              touchstart: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchStart($event)
+              },
+              touchmove: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchMove($event)
+              }
+            }
+          })
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "stars",
+          style: { width: (1.5 * _vm.val) / _vm.unit + "em" }
+        },
+        _vm._l(_vm.num, function(i) {
+          return _c("w-icon", {
+            key: i,
+            attrs: { icon: "fas fa-star" },
+            nativeOn: {
+              mousemove: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseMove($event)
+              },
+              mouseleave: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseLeave($event)
+              },
+              mouseup: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseUp($event)
+              },
+              touchstart: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchStart($event)
+              },
+              touchmove: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchMove($event)
+              }
+            }
+          })
+        }),
+        1
+      )
+    ]
   )
 }
 var staticRenderFns = []
 render._withStripped = true
 
 
-// CONCATENATED MODULE: ./src/components/button/Button.vue?vue&type=template&id=5975756f&
+// CONCATENATED MODULE: ./src/components/rate/Rate.vue?vue&type=template&id=1914cd22&
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/button/Button.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/rate/Rate.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 //
 //
 //
@@ -269,45 +350,92 @@ render._withStripped = true
 //
 //
 
-/* harmony default export */ var Buttonvue_type_script_lang_js_ = ({
-  name: 'WButton',
+// import Icon from '../icon'
+
+/* harmony default export */ var Ratevue_type_script_lang_js_ = ({
+  name: 'WRate',
+  components: {
+    // Icon
+  },
   props: {
-    disabled: Boolean,
-    processing: Boolean,
-    onclick: {
-      type: Function,
-      default: null
-    }
+    value: {
+      type: Number,
+      default: 3
+    },
+    min: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 5
+    },
+    unit: {
+      type: Number,
+      default: 1
+    },
+    decimal: {
+      type: Number,
+      default: 2
+    },
+    readonly: Boolean
   },
   data() {
     return {
-      scopedProcessing: false
+      val: this.value
     }
   },
   computed: {
-    computedProcessing: $e => $e.processing || $e.scopedProcessing
+    num() {
+      return Math.floor(this.max / this.unit)
+    }
   },
   methods: {
-    async onClick() {
-      if (this.disabled || this.computedProcessing) return
+    onMouseUp($event) {
+      if (this.readonly) return
 
-      this.scopedProcessing = true
-      if (this.onclick) {
-        await this.onclick()
-      } else {
-        this.$emit('click')
-      }
-      this.scopedProcessing = false
+      this.val = this.getMouseValue($event)
+      this.$emit('input', this.val)
+    },
+    onMouseMove($event) {
+      if (this.readonly) return
+
+      this.val = this.getMouseValue($event)
+    },
+    onMouseLeave() {
+      if (this.readonly) return
+
+      this.val = this.value
+    },
+    onTouchStart($event) {
+      if (this.readonly) return
+
+      this.val = this.getTouchValue($event)
+      this.$emit('input', this.val)
+    },
+    onTouchMove($event) {
+      if (this.readonly) return
+
+      this.val = this.getTouchValue($event)
+      this.$emit('input', this.val)
+    },
+    getMouseValue($event) {
+      const val = Math.round(($event.clientX - this.$el.offsetLeft) / this.$el.getBoundingClientRect().width * this.max * this.decimal) / this.decimal
+      return Math.min(this.max, Math.max(this.min, val))
+    },
+    getTouchValue($event) {
+      const val = Math.round(($event.changedTouches[0].clientX - this.$el.getBoundingClientRect().x) / this.$el.getBoundingClientRect().width * this.max * this.decimal) / this.decimal
+      return Math.min(this.max, Math.max(this.min, val))
     }
   }
 });
 
-// CONCATENATED MODULE: ./src/components/button/Button.vue?vue&type=script&lang=js&
- /* harmony default export */ var button_Buttonvue_type_script_lang_js_ = (Buttonvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/rate/Rate.vue?vue&type=script&lang=js&
+ /* harmony default export */ var rate_Ratevue_type_script_lang_js_ = (Ratevue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(1);
 
-// CONCATENATED MODULE: ./src/components/button/Button.vue
+// CONCATENATED MODULE: ./src/components/rate/Rate.vue
 
 
 
@@ -316,7 +444,7 @@ var componentNormalizer = __webpack_require__(1);
 /* normalize component */
 
 var component = Object(componentNormalizer["a" /* default */])(
-  button_Buttonvue_type_script_lang_js_,
+  rate_Ratevue_type_script_lang_js_,
   render,
   staticRenderFns,
   false,
@@ -328,25 +456,25 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "src/components/button/Button.vue"
-/* harmony default export */ var Button = (component.exports);
+component.options.__file = "src/components/rate/Rate.vue"
+/* harmony default export */ var Rate = (component.exports);
 // EXTERNAL MODULE: ./src/utils/plugins.js
 var plugins = __webpack_require__(0);
 
-// CONCATENATED MODULE: ./src/components/button/index.js
+// CONCATENATED MODULE: ./src/components/rate/index.js
 
 
 
 
 const Plugin = {
   install(Vue) {
-    Object(plugins["a" /* registerComponent */])(Vue, Button)
+    Object(plugins["a" /* registerComponent */])(Vue, Rate)
   }
 }
 
 Object(plugins["c" /* use */])(Plugin)
 
-/* harmony default export */ var components_button = __webpack_exports__["default"] = (Plugin);
+/* harmony default export */ var rate = __webpack_exports__["default"] = (Plugin);
 
 
 /***/ })

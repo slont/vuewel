@@ -1,0 +1,23 @@
+.w-rate {
+  position: relative;
+  height: 1.25em;
+
+  > div {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .stars {
+    .w-icon {
+      color: #f9d100;
+    }
+  }
+  .w-icon {
+    width: 1.5em;
+    min-width: 1.5em;
+    color: #e7e7e7;
+    text-align: center;
+  }
+}

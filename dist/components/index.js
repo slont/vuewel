@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 12);
+/******/ 	return __webpack_require__(__webpack_require__.s = 13);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1034,6 +1034,254 @@ Object(plugins["c" /* use */])(Plugin)
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/rate/Rate.vue?vue&type=template&id=1914cd22&
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "w-rate",
+      style: { minWidth: 1.5 * _vm.num + "em", maxWidth: 1.5 * _vm.num + "em" }
+    },
+    [
+      _c(
+        "div",
+        { staticClass: "stars-mask" },
+        _vm._l(_vm.num, function(i) {
+          return _c("w-icon", {
+            key: i,
+            attrs: { icon: "fas fa-star" },
+            nativeOn: {
+              mousemove: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseMove($event)
+              },
+              mouseleave: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseLeave($event)
+              },
+              mouseup: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseUp($event)
+              },
+              touchstart: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchStart($event)
+              },
+              touchmove: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchMove($event)
+              }
+            }
+          })
+        }),
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "stars",
+          style: { width: (1.5 * _vm.val) / _vm.unit + "em" }
+        },
+        _vm._l(_vm.num, function(i) {
+          return _c("w-icon", {
+            key: i,
+            attrs: { icon: "fas fa-star" },
+            nativeOn: {
+              mousemove: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseMove($event)
+              },
+              mouseleave: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseLeave($event)
+              },
+              mouseup: function($event) {
+                $event.stopPropagation()
+                return _vm.onMouseUp($event)
+              },
+              touchstart: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchStart($event)
+              },
+              touchmove: function($event) {
+                $event.stopPropagation()
+                return _vm.onTouchMove($event)
+              }
+            }
+          })
+        }),
+        1
+      )
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+// CONCATENATED MODULE: ./src/components/rate/Rate.vue?vue&type=template&id=1914cd22&
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/rate/Rate.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+// import Icon from '../icon'
+
+/* harmony default export */ var Ratevue_type_script_lang_js_ = ({
+  name: 'WRate',
+  components: {
+    // Icon
+  },
+  props: {
+    value: {
+      type: Number,
+      default: 3
+    },
+    min: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 5
+    },
+    unit: {
+      type: Number,
+      default: 1
+    },
+    decimal: {
+      type: Number,
+      default: 2
+    },
+    readonly: Boolean
+  },
+  data() {
+    return {
+      val: this.value
+    }
+  },
+  computed: {
+    num() {
+      return Math.floor(this.max / this.unit)
+    }
+  },
+  methods: {
+    onMouseUp($event) {
+      if (this.readonly) return
+
+      this.val = this.getMouseValue($event)
+      this.$emit('input', this.val)
+    },
+    onMouseMove($event) {
+      if (this.readonly) return
+
+      this.val = this.getMouseValue($event)
+    },
+    onMouseLeave() {
+      if (this.readonly) return
+
+      this.val = this.value
+    },
+    onTouchStart($event) {
+      if (this.readonly) return
+
+      this.val = this.getTouchValue($event)
+      this.$emit('input', this.val)
+    },
+    onTouchMove($event) {
+      if (this.readonly) return
+
+      this.val = this.getTouchValue($event)
+      this.$emit('input', this.val)
+    },
+    getMouseValue($event) {
+      const val = Math.round(($event.clientX - this.$el.offsetLeft) / this.$el.getBoundingClientRect().width * this.max * this.decimal) / this.decimal
+      return Math.min(this.max, Math.max(this.min, val))
+    },
+    getTouchValue($event) {
+      const val = Math.round(($event.changedTouches[0].clientX - this.$el.getBoundingClientRect().x) / this.$el.getBoundingClientRect().width * this.max * this.decimal) / this.decimal
+      return Math.min(this.max, Math.max(this.min, val))
+    }
+  }
+});
+
+// CONCATENATED MODULE: ./src/components/rate/Rate.vue?vue&type=script&lang=js&
+ /* harmony default export */ var rate_Ratevue_type_script_lang_js_ = (Ratevue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(1);
+
+// CONCATENATED MODULE: ./src/components/rate/Rate.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  rate_Ratevue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/components/rate/Rate.vue"
+/* harmony default export */ var Rate = (component.exports);
+// EXTERNAL MODULE: ./src/utils/plugins.js
+var plugins = __webpack_require__(0);
+
+// CONCATENATED MODULE: ./src/components/rate/index.js
+
+
+
+
+const Plugin = {
+  install(Vue) {
+    Object(plugins["a" /* registerComponent */])(Vue, Rate)
+  }
+}
+
+Object(plugins["c" /* use */])(Plugin)
+
+/* harmony default export */ var rate = __webpack_exports__["default"] = (Plugin);
+
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/navtabs/Navtabs.vue?vue&type=template&id=0c768ab3&
 var render = function() {
   var _vm = this
@@ -1154,7 +1402,7 @@ Object(plugins["c" /* use */])(Plugin)
 
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1177,8 +1425,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _card__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(8);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Card", function() { return _card__WEBPACK_IMPORTED_MODULE_5__["default"]; });
 
-/* harmony import */ var _navtabs__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Navtabs", function() { return _navtabs__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+/* harmony import */ var _rate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rate", function() { return _rate__WEBPACK_IMPORTED_MODULE_6__["default"]; });
+
+/* harmony import */ var _navtabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Navtabs", function() { return _navtabs__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+
 
 
 
@@ -1192,11 +1444,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 11 */,
-/* 12 */
+/* 12 */,
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(10);
+module.exports = __webpack_require__(11);
 
 
 /***/ })

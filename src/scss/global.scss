@@ -93,6 +93,14 @@ ul {
   }
 }
 
+.level {
+  display: flex;
+
+  > * {
+    flex: 1;
+  }
+}
+
 .is-loading {
   color: transparent !important;
 
@@ -118,8 +126,28 @@ ul {
   margin-left: auto;
 }
 
+.has-space-between {
+  justify-content: space-between;
+}
+
+.has-white {
+  color: white;
+}
+
+.is-word-break-word {
+  word-break: break-word;
+}
+
+.has-flex-start-align {
+  align-items: flex-start;
+}
+
+.has-text-transparent {
+  color: transparent;
+}
+
 .has-centered {
-  align-items: center;
+  justify-content: center;
   text-align: center;
 }
 .has-bg-primary {
