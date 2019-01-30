@@ -47,6 +47,11 @@
   &.is-rounded {
     border-radius: 50000000px;
   }
+  // Link
+  &.is-link {
+    border: none;
+    background-color: transparent;
+  }
   &[disabled] {
     opacity: .4;
     cursor: not-allowed;
@@ -123,6 +128,16 @@
         color: $white;
         border: 1px solid $green;
       }
+    }
+    // Link
+    &.is-link {
+      background-color: transparent;
+    }
+  }
+  &:active {
+    // Link
+    &.is-link {
+      background-color: transparent;
     }
   }
 

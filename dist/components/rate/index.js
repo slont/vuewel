@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 20);
+/******/ 	return __webpack_require__(__webpack_require__.s = 22);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -222,7 +222,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 20:
+/***/ 22:
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(9);
@@ -350,13 +350,8 @@ render._withStripped = true
 //
 //
 
-// import Icon from '../icon'
-
 /* harmony default export */ var Ratevue_type_script_lang_js_ = ({
   name: 'WRate',
-  components: {
-    // Icon
-  },
   props: {
     value: {
       type: Number,

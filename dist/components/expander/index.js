@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 23);
+/******/ 	return __webpack_require__(__webpack_require__.s = 18);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -222,21 +222,13 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 23:
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(5);
-
-
-/***/ }),
-
-/***/ 5:
+/***/ 10:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/toolbar/Toolbar.vue?vue&type=template&id=b35df132&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/expander/Expander.vue?vue&type=template&id=e1de7462&
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -244,22 +236,34 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-toolbar",
-      class: { "is-foot": _vm.foot, "has-shadow": _vm.shadow },
-      style: _vm.rootStyle
+      staticClass: "w-expander",
+      style: { maxHeight: _vm.opened ? "none" : _vm.height + "px" }
     },
     [
-      1 === _vm.scopedRow
-        ? _c(
-            "div",
-            {
-              staticClass: "w-toolbar-wrapper",
-              style: { maxWidth: _vm.width + "px" }
-            },
-            [_vm._t("default")],
-            2
-          )
-        : _vm._t("default")
+      _vm._t("default"),
+      _vm._v(" "),
+      !_vm.opened ? _c("div", { staticClass: "mask" }) : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "foot" },
+        [
+          _vm.openText && _vm.closeText
+            ? _c(
+                "w-button",
+                { class: _vm.btnClass, on: { click: _vm.toggle } },
+                [
+                  _vm._v(
+                    "\n      " +
+                      _vm._s(_vm.opened ? _vm.closeText : _vm.openText) +
+                      "\n    "
+                  )
+                ]
+              )
+            : _vm._e()
+        ],
+        1
+      )
     ],
     2
   )
@@ -268,9 +272,12 @@ var staticRenderFns = []
 render._withStripped = true
 
 
-// CONCATENATED MODULE: ./src/components/toolbar/Toolbar.vue?vue&type=template&id=b35df132&
+// CONCATENATED MODULE: ./src/components/expander/Expander.vue?vue&type=template&id=e1de7462&
 
-// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/toolbar/Toolbar.vue?vue&type=script&lang=js&
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/expander/Expander.vue?vue&type=script&lang=js&
+//
+//
+//
 //
 //
 //
@@ -281,61 +288,38 @@ render._withStripped = true
 //
 //
 
-/* harmony default export */ var Toolbarvue_type_script_lang_js_ = ({
-  name: 'WToolbar',
+/* harmony default export */ var Expandervue_type_script_lang_js_ = ({
+  name: 'WExpander',
   props: {
-    row: {
-      type: Number | String,
-      default: '1'
-    },
-    scrollTop: {
-      type: Number,
-      default: 0
-    },
-    width: {
-      type: String,
-      default: '1080'
-    },
     height: {
-      type: String,
-      default: '48'
+      type: Number,
+      default: 198
     },
-    foot: Boolean,
-    shadow: {
-      type: Boolean,
-      default: true
+    openText: String,
+    closeText: String,
+    btnClass: {
+      type: String,
+      default: 'is-link'
     }
   },
   data() {
     return {
-      scrolled: 0
+      opened: false
     }
   },
-  computed: {
-    scopedRow: vm => Number(vm.row),
-    scrollableHeight: vm => vm.height * (vm.scopedRow - 1),
-    rootStyle: vm => ({
-      top: vm.foot ? 'initial' : `-${Math.min(vm.scrolled, vm.scrollTop)}px`,
-      height: `${vm.height * vm.scopedRow}px`
-    })
-  },
-  watch: {
-    scrollTop(newValue, oldValue) {
-      if (newValue < oldValue) {
-        this.scrolled = Math.max(0, this.scrolled + newValue - oldValue)
-      } else {
-        this.scrolled = Math.min(this.scrollableHeight, this.scrolled + newValue - oldValue)
-      }
+  methods: {
+    toggle() {
+      this.opened = !this.opened
     }
   }
 });
 
-// CONCATENATED MODULE: ./src/components/toolbar/Toolbar.vue?vue&type=script&lang=js&
- /* harmony default export */ var toolbar_Toolbarvue_type_script_lang_js_ = (Toolbarvue_type_script_lang_js_); 
+// CONCATENATED MODULE: ./src/components/expander/Expander.vue?vue&type=script&lang=js&
+ /* harmony default export */ var expander_Expandervue_type_script_lang_js_ = (Expandervue_type_script_lang_js_); 
 // EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
 var componentNormalizer = __webpack_require__(1);
 
-// CONCATENATED MODULE: ./src/components/toolbar/Toolbar.vue
+// CONCATENATED MODULE: ./src/components/expander/Expander.vue
 
 
 
@@ -344,7 +328,7 @@ var componentNormalizer = __webpack_require__(1);
 /* normalize component */
 
 var component = Object(componentNormalizer["a" /* default */])(
-  toolbar_Toolbarvue_type_script_lang_js_,
+  expander_Expandervue_type_script_lang_js_,
   render,
   staticRenderFns,
   false,
@@ -356,25 +340,33 @@ var component = Object(componentNormalizer["a" /* default */])(
 
 /* hot reload */
 if (false) { var api; }
-component.options.__file = "src/components/toolbar/Toolbar.vue"
-/* harmony default export */ var Toolbar = (component.exports);
+component.options.__file = "src/components/expander/Expander.vue"
+/* harmony default export */ var Expander = (component.exports);
 // EXTERNAL MODULE: ./src/utils/plugins.js
 var plugins = __webpack_require__(0);
 
-// CONCATENATED MODULE: ./src/components/toolbar/index.js
+// CONCATENATED MODULE: ./src/components/expander/index.js
 
 
 
 
 const Plugin = {
   install(Vue) {
-    Object(plugins["a" /* registerComponent */])(Vue, Toolbar)
+    Object(plugins["a" /* registerComponent */])(Vue, Expander)
   }
 }
 
 Object(plugins["c" /* use */])(Plugin)
 
-/* harmony default export */ var toolbar = __webpack_exports__["default"] = (Plugin);
+/* harmony default export */ var expander = __webpack_exports__["default"] = (Plugin);
+
+
+/***/ }),
+
+/***/ 18:
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(10);
 
 
 /***/ })

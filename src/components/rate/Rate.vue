@@ -20,13 +20,8 @@
 </template>
 
 <script>
-  // import Icon from '../icon'
-
   export default {
     name: 'WRate',
-    components: {
-      // Icon
-    },
     props: {
       value: {
         type: Number,

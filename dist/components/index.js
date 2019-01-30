@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 13);
+/******/ 	return __webpack_require__(__webpack_require__.s = 14);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -1148,13 +1148,8 @@ render._withStripped = true
 //
 //
 
-// import Icon from '../icon'
-
 /* harmony default export */ var Ratevue_type_script_lang_js_ = ({
   name: 'WRate',
-  components: {
-    // Icon
-  },
   props: {
     value: {
       type: Number,
@@ -1282,6 +1277,146 @@ Object(plugins["c" /* use */])(Plugin)
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/expander/Expander.vue?vue&type=template&id=e1de7462&
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    {
+      staticClass: "w-expander",
+      style: { maxHeight: _vm.opened ? "none" : _vm.height + "px" }
+    },
+    [
+      _vm._t("default"),
+      _vm._v(" "),
+      !_vm.opened ? _c("div", { staticClass: "mask" }) : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "foot" },
+        [
+          _vm.openText && _vm.closeText
+            ? _c(
+                "w-button",
+                { class: _vm.btnClass, on: { click: _vm.toggle } },
+                [
+                  _vm._v(
+                    "\n      " +
+                      _vm._s(_vm.opened ? _vm.closeText : _vm.openText) +
+                      "\n    "
+                  )
+                ]
+              )
+            : _vm._e()
+        ],
+        1
+      )
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+// CONCATENATED MODULE: ./src/components/expander/Expander.vue?vue&type=template&id=e1de7462&
+
+// CONCATENATED MODULE: ./node_modules/vue-loader/lib??vue-loader-options!./src/components/expander/Expander.vue?vue&type=script&lang=js&
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ var Expandervue_type_script_lang_js_ = ({
+  name: 'WExpander',
+  props: {
+    height: {
+      type: Number,
+      default: 198
+    },
+    openText: String,
+    closeText: String,
+    btnClass: {
+      type: String,
+      default: 'is-link'
+    }
+  },
+  data() {
+    return {
+      opened: false
+    }
+  },
+  methods: {
+    toggle() {
+      this.opened = !this.opened
+    }
+  }
+});
+
+// CONCATENATED MODULE: ./src/components/expander/Expander.vue?vue&type=script&lang=js&
+ /* harmony default export */ var expander_Expandervue_type_script_lang_js_ = (Expandervue_type_script_lang_js_); 
+// EXTERNAL MODULE: ./node_modules/vue-loader/lib/runtime/componentNormalizer.js
+var componentNormalizer = __webpack_require__(1);
+
+// CONCATENATED MODULE: ./src/components/expander/Expander.vue
+
+
+
+
+
+/* normalize component */
+
+var component = Object(componentNormalizer["a" /* default */])(
+  expander_Expandervue_type_script_lang_js_,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "src/components/expander/Expander.vue"
+/* harmony default export */ var Expander = (component.exports);
+// EXTERNAL MODULE: ./src/utils/plugins.js
+var plugins = __webpack_require__(0);
+
+// CONCATENATED MODULE: ./src/components/expander/index.js
+
+
+
+
+const Plugin = {
+  install(Vue) {
+    Object(plugins["a" /* registerComponent */])(Vue, Expander)
+  }
+}
+
+Object(plugins["c" /* use */])(Plugin)
+
+/* harmony default export */ var expander = __webpack_exports__["default"] = (Plugin);
+
+
+/***/ }),
+/* 11 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+
 // CONCATENATED MODULE: ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./src/components/navtabs/Navtabs.vue?vue&type=template&id=0c768ab3&
 var render = function() {
   var _vm = this
@@ -1402,7 +1537,7 @@ Object(plugins["c" /* use */])(Plugin)
 
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1428,8 +1563,12 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _rate__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(9);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Rate", function() { return _rate__WEBPACK_IMPORTED_MODULE_6__["default"]; });
 
-/* harmony import */ var _navtabs__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
-/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Navtabs", function() { return _navtabs__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+/* harmony import */ var _expander__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(10);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Expander", function() { return _expander__WEBPACK_IMPORTED_MODULE_7__["default"]; });
+
+/* harmony import */ var _navtabs__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(11);
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "Navtabs", function() { return _navtabs__WEBPACK_IMPORTED_MODULE_8__["default"]; });
+
 
 
 
@@ -1444,11 +1583,11 @@ __webpack_require__.r(__webpack_exports__);
 
 
 /***/ }),
-/* 12 */,
-/* 13 */
+/* 13 */,
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(11);
+module.exports = __webpack_require__(12);
 
 
 /***/ })

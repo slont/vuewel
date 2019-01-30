@@ -54,6 +54,56 @@ ul {
   }
 }
 
+a {
+  color: #2146ff;
+  display: inherit;
+}
+
+.is-nowrap {
+  white-space: nowrap;
+}
+
+.w-navtabs {
+  &.fullwidth {
+    justify-content: space-evenly;
+
+    li {
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
+
+.tag {
+  $bg-color: limegreen;
+
+  color: $bg-color;
+  border: 1px solid $bg-color;
+  border-radius: 4px;
+  height: 2em;
+  padding: .25em .5em;
+}
+
+.line-2 {
+  overflow: hidden;
+  height: 2em;
+  line-height: 1;
+}
+
+.line-3 {
+  overflow: hidden;
+  height: 3em;
+  line-height: 1;
+}
+
+.media {
+  display: flex;
+
+  > :not(:last-child) {
+    margin-right: .75rem;
+  }
+}
+
 .input {
   border: 1px solid gainsboro;
   padding: .375rem;
@@ -142,19 +192,19 @@ ul {
   align-items: flex-start;
 }
 
-.has-text-transparent {
-  color: transparent;
-}
-
 .has-centered {
   justify-content: center;
   text-align: center;
 }
-.has-bg-primary {
-  background-color: $primary !important;
-}
+
 .has-weak {
   color: $weak !important;
+}
+.has-text-transparent {
+  color: transparent !important;
+}
+.has-bg-primary {
+  background-color: $primary !important;
 }
 .has-bg-red {
   background-color: red;
