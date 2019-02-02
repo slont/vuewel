@@ -59,6 +59,14 @@ a {
   display: inherit;
 }
 
+.flex-0 {
+  flex: 0;
+}
+
+.flex-1 {
+  flex: 1;
+}
+
 .is-nowrap {
   white-space: nowrap;
 }
@@ -86,13 +94,13 @@ a {
 
 .line-2 {
   overflow: hidden;
-  height: 2em;
+  max-height: 2em;
   line-height: 1;
 }
 
 .line-3 {
   overflow: hidden;
-  height: 3em;
+  max-height: 3em;
   line-height: 1;
 }
 
