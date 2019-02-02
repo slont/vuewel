@@ -237,18 +237,25 @@ var render = function() {
     "div",
     {
       staticClass: "w-expander",
-      style: { maxHeight: _vm.opened ? "none" : _vm.height + "px" }
+      style: {
+        maxHeight: _vm.opened ? "none" : _vm.height + "px",
+        paddingBottom: _vm.paddingBottom
+      }
     },
     [
-      _vm._t("default"),
+      _vm.content
+        ? _c("p", { domProps: { innerHTML: _vm._s(_vm.displayedContent) } })
+        : _vm._t("default"),
       _vm._v(" "),
-      !_vm.opened ? _c("div", { staticClass: "mask" }) : _vm._e(),
+      _vm.hasMask && !_vm.opened
+        ? _c("div", { staticClass: "mask" })
+        : _vm._e(),
       _vm._v(" "),
       _c(
         "div",
         { staticClass: "foot" },
         [
-          _vm.openText && _vm.closeText
+          _vm.isOverCount && _vm.openText && _vm.closeText
             ? _c(
                 "w-button",
                 { class: _vm.btnClass, on: { click: _vm.toggle } },
@@ -287,6 +294,7 @@ render._withStripped = true
 //
 //
 //
+//
 
 /* harmony default export */ var Expandervue_type_script_lang_js_ = ({
   name: 'WExpander',
@@ -300,11 +308,33 @@ render._withStripped = true
     btnClass: {
       type: String,
       default: 'is-link'
+    },
+    maxCount: {
+      type: Number,
+      default: -1
+    },
+    content: String,
+    hasMask: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
     return {
       opened: false
+    }
+  },
+  computed: {
+    displayedContent() {
+      return this.isOverCount && this.opened ? this.content : this.content.substr(0, this.maxCount)
+    },
+    isOverCount() {
+      return !this.content || this.maxCount < this.content.length
+    },
+    paddingBottom() {
+      return this.content
+          ? this.isOverCount ? '3rem' : '0'
+          : '4rem'
     }
   },
   methods: {

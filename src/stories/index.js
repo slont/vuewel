@@ -52,5 +52,6 @@ storiesOf('Rate', module)
 
 storiesOf('Expander', module)
     .add('Basic', () => ExpanderStory.story1)
+    .add('Using over', () => ExpanderStory.story2)
 
 /* eslint-enable react/react-in-jsx-scope */
