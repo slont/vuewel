@@ -54,6 +54,27 @@
           this.scrolled = Math.min(this.scrollableHeight, this.scrolled + newValue - oldValue)
         }
       }
+    },
+    created() {
+      this.scrolled = Math.min(this.scrollableHeight, this.scrollTop)
+    },
+    methods: {
+      async open(unit = 3) {
+        if (this.scrolled <= 0) return
+
+        await new Promise(r => setTimeout(r, 0))
+
+        this.scrolled -= unit
+        this.open(unit)
+      },
+      async close(unit = 3) {
+        if (this.scrollableHeight <= this.scrolled) return
+
+        await new Promise(r => setTimeout(r, 0))
+
+        this.scrolled = Math.min(this.scrolled + unit, this.scrollableHeight)
+        this.close(unit)
+      }
     }
   }
 </script>
