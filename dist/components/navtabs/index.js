@@ -276,6 +276,9 @@ render._withStripped = true
 /* harmony default export */ var Navtabsvue_type_script_lang_js_ = ({
   name: 'WNavtabs',
   props: {
+    value: {
+      type: String | Number
+    },
     tabs: {
       type: Array,
       default: () => []
@@ -286,7 +289,15 @@ render._withStripped = true
       activeIndex: 0
     }
   },
+  created() {
+    this.setTab(this.value)
+  },
   methods: {
+    setTab(value) {
+      if (null != value) {
+        this.activeIndex = this.tabs.findIndex(t => t.id === value)
+      }
+    },
     onClick(index) {
       this.activeIndex = index
       const tab = this.tabs[index]
@@ -295,6 +306,7 @@ render._withStripped = true
       } else if (tab.url && typeof window !== 'undefined') {
         window.open(tab.url, '_blank')
       }
+      this.$emit('input', this.tabs[this.activeIndex].id)
       this.$emit('click', tab)
     }
   }
