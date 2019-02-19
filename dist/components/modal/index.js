@@ -256,14 +256,15 @@ var render = function() {
     _vm.active
       ? _c(
           "div",
-          { staticClass: "w-modal", class: { fullscreen: _vm.full } },
+          {
+            staticClass: "modal",
+            class: { fullscreen: _vm.full, half: _vm.half }
+          },
           [
-            !_vm.full
-              ? _c("div", {
-                  staticClass: "modal-backdrop",
-                  on: { click: _vm.onClickBackdrop }
-                })
-              : _vm._e(),
+            _c("div", {
+              staticClass: "modal-backdrop",
+              on: { click: _vm.onClickBackdrop }
+            }),
             _vm._v(" "),
             _vm.component
               ? _c(
@@ -351,12 +352,14 @@ render._withStripped = true
       type: String,
       default: 'clip',
       validator: value => ['clip', 'keep'].indexOf(value) >= 0
-    }
+    },
+    half: Boolean,
+    animation: String
   },
   data() {
     return {
       active: false,
-      transition: 'transition'
+      transition: this.animation ? this.animation : this.half ? 'modal-half' : 'modal-basic'
     }
   },
   computed: {

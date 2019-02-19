@@ -244,7 +244,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-toolbar",
+      staticClass: "toolbar",
       class: { "is-foot": _vm.foot, "has-shadow": _vm.shadow },
       style: _vm.rootStyle
     },
@@ -253,7 +253,7 @@ var render = function() {
         ? _c(
             "div",
             {
-              staticClass: "w-toolbar-wrapper",
+              staticClass: "toolbar-wrapper",
               style: { maxWidth: _vm.width + "px" }
             },
             [_vm._t("default")],

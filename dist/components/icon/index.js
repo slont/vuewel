@@ -243,15 +243,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "span",
-    { staticClass: "w-icon" },
-    [
-      _vm.icon
-        ? _c("i", {
-            class: _vm.cls,
-            style: { color: _vm.color ? _vm.color : "currentColor" }
-          })
-        : _vm._t("default")
-    ],
+    { staticClass: "icon", style: { color: _vm.color || "" } },
+    [_vm.icon ? _c("i", { class: _vm.cls }) : _vm._t("default")],
     2
   )
 }
@@ -280,7 +273,7 @@ render._withStripped = true
   },
   computed: {
     cls: vm => [
-      vm.icon,
+      vm.icon ? vm.icon : '',
       vm.size ? `fa-${vm.size}` : '',
       vm.fw ? `fa-fw` : ''
     ]

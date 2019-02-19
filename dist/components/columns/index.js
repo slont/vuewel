@@ -244,7 +244,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-columns",
+      staticClass: "columns",
       style: { flexWrap: _vm.multi ? "wrap" : "nowrap" }
     },
     [_vm._t("default")],

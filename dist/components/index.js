@@ -239,7 +239,7 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "w-button",
+      staticClass: "button",
       class: { "is-loading": _vm.computedProcessing },
       attrs: { disabled: _vm.disabled },
       on: { click: _vm.onClick }
@@ -364,14 +364,15 @@ var render = function() {
     _vm.active
       ? _c(
           "div",
-          { staticClass: "w-modal", class: { fullscreen: _vm.full } },
+          {
+            staticClass: "modal",
+            class: { fullscreen: _vm.full, half: _vm.half }
+          },
           [
-            !_vm.full
-              ? _c("div", {
-                  staticClass: "modal-backdrop",
-                  on: { click: _vm.onClickBackdrop }
-                })
-              : _vm._e(),
+            _c("div", {
+              staticClass: "modal-backdrop",
+              on: { click: _vm.onClickBackdrop }
+            }),
             _vm._v(" "),
             _vm.component
               ? _c(
@@ -459,12 +460,14 @@ render._withStripped = true
       type: String,
       default: 'clip',
       validator: value => ['clip', 'keep'].indexOf(value) >= 0
-    }
+    },
+    half: Boolean,
+    animation: String
   },
   data() {
     return {
       active: false,
-      transition: 'transition'
+      transition: this.animation ? this.animation : this.half ? 'modal-half' : 'modal-basic'
     }
   },
   computed: {
@@ -620,7 +623,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-toolbar",
+      staticClass: "toolbar",
       class: { "is-foot": _vm.foot, "has-shadow": _vm.shadow },
       style: _vm.rootStyle
     },
@@ -629,7 +632,7 @@ var render = function() {
         ? _c(
             "div",
             {
-              staticClass: "w-toolbar-wrapper",
+              staticClass: "toolbar-wrapper",
               style: { maxWidth: _vm.width + "px" }
             },
             [_vm._t("default")],
@@ -789,7 +792,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-columns",
+      staticClass: "columns",
       style: { flexWrap: _vm.multi ? "wrap" : "nowrap" }
     },
     [_vm._t("default")],
@@ -878,15 +881,8 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "span",
-    { staticClass: "w-icon" },
-    [
-      _vm.icon
-        ? _c("i", {
-            class: _vm.cls,
-            style: { color: _vm.color ? _vm.color : "currentColor" }
-          })
-        : _vm._t("default")
-    ],
+    { staticClass: "icon", style: { color: _vm.color || "" } },
+    [_vm.icon ? _c("i", { class: _vm.cls }) : _vm._t("default")],
     2
   )
 }
@@ -915,7 +911,7 @@ render._withStripped = true
   },
   computed: {
     cls: vm => [
-      vm.icon,
+      vm.icon ? vm.icon : '',
       vm.size ? `fa-${vm.size}` : '',
       vm.fw ? `fa-fw` : ''
     ]
@@ -981,7 +977,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "w-card" }, [_vm._t("default")], 2)
+  return _c("div", { staticClass: "card" }, [_vm._t("default")], 2)
 }
 var staticRenderFns = []
 render._withStripped = true
@@ -1063,7 +1059,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-rate",
+      staticClass: "rate",
       style: { minWidth: 1.5 * _vm.num + "em", maxWidth: 1.5 * _vm.num + "em" }
     },
     [
@@ -1306,7 +1302,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-expander",
+      staticClass: "expander",
       style: {
         maxHeight: _vm.opened ? "none" : _vm.height + "px",
         paddingBottom: _vm.paddingBottom
@@ -1475,13 +1471,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "ul",
-    { staticClass: "w-navtabs" },
+    { staticClass: "navtabs" },
     _vm._l(_vm.tabs, function(tab, i) {
       return _c(
         "li",
         {
           key: tab.id,
-          staticClass: "w-navtab",
+          staticClass: "navtab",
           class: { "is-active": _vm.activeIndex === i },
           on: {
             click: function($event) {

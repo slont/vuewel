@@ -235,13 +235,13 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "ul",
-    { staticClass: "w-navtabs" },
+    { staticClass: "navtabs" },
     _vm._l(_vm.tabs, function(tab, i) {
       return _c(
         "li",
         {
           key: tab.id,
-          staticClass: "w-navtab",
+          staticClass: "navtab",
           class: { "is-active": _vm.activeIndex === i },
           on: {
             click: function($event) {

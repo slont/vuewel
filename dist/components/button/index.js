@@ -244,7 +244,7 @@ var render = function() {
   return _c(
     "button",
     {
-      staticClass: "w-button",
+      staticClass: "button",
       class: { "is-loading": _vm.computedProcessing },
       attrs: { disabled: _vm.disabled },
       on: { click: _vm.onClick }

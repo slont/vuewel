@@ -236,7 +236,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-expander",
+      staticClass: "expander",
       style: {
         maxHeight: _vm.opened ? "none" : _vm.height + "px",
         paddingBottom: _vm.paddingBottom

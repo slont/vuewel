@@ -1,7 +1,7 @@
 <template>
   <transition :name="transition">
-    <div class="modal" :class="{fullscreen: full}" v-if="active">
-      <div class="modal-backdrop" v-if="!full" @click="onClickBackdrop"></div>
+    <div class="modal" :class="{fullscreen: full, half: half}" v-if="active">
+      <div class="modal-backdrop" @click="onClickBackdrop"></div>
       <component v-bind="props" v-on="events" :is="component" v-if="component"
                  :style="style" @close="close"/>
       <div class="modal-container" v-else>
@@ -42,12 +42,14 @@
         type: String,
         default: 'clip',
         validator: value => ['clip', 'keep'].indexOf(value) >= 0
-      }
+      },
+      half: Boolean,
+      animation: String
     },
     data() {
       return {
         active: false,
-        transition: 'transition'
+        transition: this.animation ? this.animation : this.half ? 'modal-half' : 'modal-basic'
       }
     },
     computed: {

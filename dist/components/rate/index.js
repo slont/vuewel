@@ -244,7 +244,7 @@ var render = function() {
   return _c(
     "div",
     {
-      staticClass: "w-rate",
+      staticClass: "rate",
       style: { minWidth: 1.5 * _vm.num + "em", maxWidth: 1.5 * _vm.num + "em" }
     },
     [
