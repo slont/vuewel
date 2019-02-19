@@ -1,5 +1,5 @@
 <template>
-  <span class="w-icon">
+  <span class="icon">
     <i :class="cls" v-if="icon" :style="{color: color ? color : 'currentColor'}"></i>
     <slot :style="{color: color ? color : 'currentColor'}" v-else/>
   </span>

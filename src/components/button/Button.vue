@@ -1,5 +1,5 @@
 <template>
-  <button class="w-button" :class="{'is-loading': computedProcessing}"
+  <button class="button" :class="{'is-loading': computedProcessing}"
           :disabled="disabled"
           @click="onClick">
     <slot></slot>

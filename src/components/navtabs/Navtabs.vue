@@ -1,7 +1,7 @@
 <template>
-  <ul class="w-navtabs">
+  <ul class="navtabs">
     <li v-for="(tab, i) in tabs" :key="tab.id"
-        class="w-navtab" :class="{'is-active': activeIndex === i}"
+        class="navtab" :class="{'is-active': activeIndex === i}"
         @click="onClick(i)">
       <span>{{ tab.name }}</span>
     </li>

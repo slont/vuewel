@@ -1,6 +1,6 @@
 <template>
   <transition :name="transition">
-    <div class="w-modal" :class="{fullscreen: full}" v-if="active">
+    <div class="modal" :class="{fullscreen: full}" v-if="active">
       <div class="modal-backdrop" v-if="!full" @click="onClickBackdrop"></div>
       <component v-bind="props" v-on="events" :is="component" v-if="component"
                  :style="style" @close="close"/>

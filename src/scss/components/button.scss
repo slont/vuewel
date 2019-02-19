@@ -1,4 +1,4 @@
-.w-button {
+.button {
   font-size: $size-5;
   position: relative;
   border-radius: 5px;
@@ -141,13 +141,13 @@
     }
   }
 
-  > .w-icon:first-child:last-child {
+  > .icon:first-child:last-child {
     margin: 0 -0.875em;
   }
-  > .w-icon:first-child {
+  > .icon:first-child {
     margin-right: .25em;
   }
-  > .w-icon:last-child {
+  > .icon:last-child {
     margin-left: .25em;
   }
 }

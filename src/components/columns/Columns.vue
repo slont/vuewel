@@ -1,5 +1,5 @@
 <template>
-  <div class="w-columns" :style="{flexWrap: multi ? 'wrap' : 'nowrap'}">
+  <div class="columns" :style="{flexWrap: multi ? 'wrap' : 'nowrap'}">
     <slot></slot>
   </div>
 </template>

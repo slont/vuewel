@@ -1,5 +1,5 @@
 <template>
-  <div class="w-expander" :style="{maxHeight: opened ? 'none' : `${height}px`, paddingBottom}">
+  <div class="expander" :style="{maxHeight: opened ? 'none' : `${height}px`, paddingBottom}">
     <p v-html="displayedContent" v-if="content"/>
     <slot v-else/>
     <div class="mask" v-if="hasMask && !opened"/>

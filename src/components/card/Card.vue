@@ -1,5 +1,5 @@
 <template>
-  <div class="w-card">
+  <div class="card">
     <slot/>
   </div>
 </template>

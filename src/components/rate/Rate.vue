@@ -1,5 +1,5 @@
 <template>
-  <div class="w-rate" :style="{minWidth: `${1.5 * num}em`, maxWidth: `${1.5 * num}em`}">
+  <div class="rate" :style="{minWidth: `${1.5 * num}em`, maxWidth: `${1.5 * num}em`}">
     <div class="stars-mask">
       <w-icon v-for="i in num" :key="i" icon="fas fa-star"
               @mousemove.native.stop="onMouseMove"

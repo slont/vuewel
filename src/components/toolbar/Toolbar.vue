@@ -1,6 +1,6 @@
 <template>
-  <div class="w-toolbar" :class="{'is-foot': foot, 'has-shadow': shadow}" :style="rootStyle">
-    <div class="w-toolbar-wrapper" :style="{maxWidth: `${width}px`}" v-if="1 === scopedRow">
+  <div class="toolbar" :class="{'is-foot': foot, 'has-shadow': shadow}" :style="rootStyle">
+    <div class="toolbar-wrapper" :style="{maxWidth: `${width}px`}" v-if="1 === scopedRow">
       <slot/>
     </div>
     <slot v-else/>
