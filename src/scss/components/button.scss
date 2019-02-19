@@ -43,6 +43,21 @@
       color: $green;
     }
   }
+  // Invert
+  &.is-invert {
+    color: $white;
+    background-color: transparent;
+
+    &.is-primary {
+      color: $primary;
+    }
+    &.is-red {
+      color: $red;
+    }
+    &.is-green {
+      color: $green;
+    }
+  }
   // Rounded
   &.is-rounded {
     border-radius: 50000000px;
@@ -113,20 +128,33 @@
     // Outlined
     &.is-outlined,
     &.is-loading {
+      color: $white;
+
       &.is-primary {
         background-color: $primary;
-        color: $white;
         border: 1px solid $primary;
       }
       &.is-red {
         background-color: $red;
-        color: $white;
         border: 1px solid $red;
       }
       &.is-green {
         background-color: $green;
-        color: $white;
         border: 1px solid $green;
+      }
+    }
+    // Invert
+    &.is-invert {
+      color: $white;
+
+      &.is-primary {
+        background-color: $primary;
+      }
+      &.is-red {
+        background-color: $red;
+      }
+      &.is-green {
+        background-color: $green;
       }
     }
     // Link

@@ -1,6 +1,6 @@
 <template>
-  <span class="icon">
-    <i :class="cls" v-if="icon" :style="{color: color ? color : 'currentColor'}"></i>
+  <span class="icon" :style="{color: color || ''}">
+    <i :class="cls" v-if="icon"/>
     <slot :style="{color: color ? color : 'currentColor'}" v-else/>
   </span>
 </template>
@@ -16,7 +16,7 @@
     },
     computed: {
       cls: vm => [
-        vm.icon,
+        vm.icon ? vm.icon : '',
         vm.size ? `fa-${vm.size}` : '',
         vm.fw ? `fa-fw` : ''
       ]

@@ -19,6 +19,14 @@ export default {
     <w-button class="is-green is-outlined">Green</w-button>
   </div>
   
+  <div class="field has-bg-black">
+    <label class="has-white">Invert</label>
+    <w-button class="is-invert">Default</w-button>
+    <w-button class="is-primary is-invert">Primary</w-button>
+    <w-button class="is-red is-invert">Red</w-button>
+    <w-button class="is-green is-invert">Green</w-button>
+  </div>
+  
   <div class="field">
     <label for="">Size</label>
     <w-button class="is-mini">Mini</w-button>

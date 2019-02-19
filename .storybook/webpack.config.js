@@ -9,7 +9,7 @@ module.exports = {
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: ['./src/scss/global.scss'],
+              resources: ['./src/scss/all.scss'],
               include: path.resolve(__dirname, '../')
             }
           }],
