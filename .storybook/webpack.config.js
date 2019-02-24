@@ -4,12 +4,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(css|scss)$/,
+        test: /\.(css|sass|scss)$/,
         loaders: ['style-loader', 'css-loader', 'sass-loader',
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: ['./src/scss/all.scss'],
+              resources: ['./src/sass/all.sass'],
               include: path.resolve(__dirname, '../')
             }
           }],
@@ -18,6 +18,6 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.js', '.vue', '.json', 'scss']
+    extensions: ['.js', '.vue', '.json', 'sass', 'scss']
   }
 }

@@ -1,0 +1,138 @@
+.button
+  font-size: $size-5
+  position: relative
+  border-radius: 5px
+  border: 1px solid gainsboro
+  padding: .5em .875em
+  background-color: $white
+  outline: none
+  cursor: pointer
+  transition: background-color .2s, border-color .2s, color .15s, box-shadow .15s
+  height: 2.25em
+  min-width: 2.25em
+
+  &.is-rounded
+    border-radius: 5000px
+
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+
+    span
+      text-shadow: 1px 2px 4px rgba($black, .25)
+    &.is-#{$name}
+      background-color: $color
+      border-color: $color
+      color: $color-invert
+      &:hover,
+      &.is-hovered
+        background-color: darken($color, 2.5%)
+        border-color: transparent
+        color: $color-invert
+      &:focus,
+      &.is-focused
+        border-color: transparent
+        color: $color-invert
+      &:active,
+      &.is-active
+        background-color: darken($color, 5%)
+        border-color: transparent
+        color: $color-invert
+      // Shadow
+      &.has-shadow
+        box-shadow: 0 10px 24px -8px $color
+        &:hover,
+        &:focus
+          box-shadow: 0 0 0 0 $color
+      &.is-gradient
+        background-image: linear-gradient(35deg, $color, lighten($color, 15))
+        border: none
+        color: $color-invert
+      // Disabled
+      &[disabled],
+      fieldset[disabled] &
+        background-color: $color
+        border-color: transparent
+        box-shadow: none
+      // Inverted
+      &.is-inverted
+        background-color: $color-invert
+        color: $color
+        &:hover
+          background-color: darken($color-invert, 5%)
+        &[disabled],
+        fieldset[disabled] &
+          background-color: $color-invert
+          border-color: transparent
+          box-shadow: none
+          color: $color
+        span
+          text-shadow: 1px 2px 4px rgba($color, .3)
+      // Loading
+      &.is-loading
+        span
+          text-shadow: 0 0 4px rgba($color-invert, .4)
+        &::after
+          border-color: transparent transparent $color-invert $color-invert !important
+      // Outlined
+      &.is-outlined
+        background-color: transparent
+        border-color: $color
+        color: $color
+        &:hover,
+        &:focus
+          background-color: $color
+          border-color: $color
+          color: $color-invert
+          span
+            text-shadow: 1px 2px 4px rgba($black, .25)
+        &.is-loading
+          span
+            text-shadow: 0 0 4px rgba($color, .4)
+          &::after
+            border-color: transparent transparent $color $color !important
+        &[disabled],
+        fieldset[disabled] &
+          background-color: transparent
+          border-color: $color
+          box-shadow: none
+          color: $color
+        &.has-shadow
+          box-shadow: 0 0 12px 0 $color
+          &:hover,
+          &:focus
+            box-shadow: 0 0 0 0 $color
+        span
+          text-shadow: 1px 2px 4px rgba($color, .25)
+      // Invert Outlined
+      &.is-inverted.is-outlined
+        background-color: transparent
+        border-color: lighten($color, 10)
+        color: lighten($color, 10)
+        &:hover,
+        &:focus
+          background-color: lighten($color, 5)
+          border-color: lighten($color, 5)
+          color: $color-invert
+          span
+            text-shadow: 1px 2px 4px rgba($black, .25)
+        &[disabled],
+        fieldset[disabled] &
+          background-color: transparent
+          border-color: $color-invert
+          box-shadow: none
+          color: $color-invert
+        &.has-shadow
+          box-shadow: 0 0 8px 2px $color
+          &:hover,
+          &:focus
+            box-shadow: 0 0 0 0 $color
+        span
+          text-shadow: 1px 2px 4px rgba($color, .7)
+
+  > .icon:first-child
+    margin-right: .25em
+  > .icon:last-child
+    margin-left: .25em
+    &:first-child
+      margin: 0 -0.875em

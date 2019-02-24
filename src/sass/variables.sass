@@ -1,0 +1,54 @@
+$font: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", "游ゴシック体", "Yu Gothic", YuGothic, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", Roboto, 'Helvetica Neue', Arial, sans-serif
+$main-color: #0088ff
+$text-color: #010219
+$icon-color: darkgrey
+
+$primary: $main-color
+$success: hsl(120, 89%, 43%)
+$link: hsl(216, 100%, 41%)
+$info: hsl(204, 86%, 50%)
+$warning: hsl(37, 100%, 50%)
+$danger: hsl(341, 100%, 53%)
+$weak: darkgrey
+$black: #000000
+$white: #ffffff
+$transparent: rgba(255, 255, 255, 0)
+
+$primary-invert: findColorInvert($primary) !default
+$success-invert: findColorInvert($success) !default
+$link-invert: findColorInvert($link) !default
+$info-invert: findColorInvert($info) !default
+$warning-invert: findColorInvert($warning) !default
+$danger-invert: findColorInvert($danger) !default
+$weak-invert: findColorInvert($weak) !default
+$black-invert: findColorInvert($black) !default
+$white-invert: findColorInvert($white) !default
+
+$tabs-link-active-border-bottom-color: $primary
+$tabs-link-active-color: $primary
+$tabs-toggle-link-active-background-color: $primary
+$tabs-toggle-link-active-border-color: $primary
+
+$size-base: 1rem
+
+$size-1: size(4)
+$size-2: size(3)
+$size-3: size(2)
+$size-4: size(1)
+$size-5: size(0)
+$size-6: size(-1)
+$size-7: size(-2)
+$size-8: size(-3)
+$size-9: size(-4)
+$header-height: 40px
+
+$tabs-border-bottom-width: 3px
+$tabs-border-bottom-color: $transparent
+$modal-radius: 4px
+$modal-background-color: white
+$modal-card-body-padding: 1rem .75rem
+
+$toolbar-bg-color: white
+
+$custom-colors: null !default
+$colors: mergeColorMaps(("white": ($white, $black), "black": ($black, $white), "primary": ($primary, $primary-invert), "success": ($success, $success-invert), "link": ($link, $link-invert), "info": ($info, $info-invert), "warning": ($warning, $warning-invert), "danger": ($danger, $danger-invert)), $custom-colors) !default

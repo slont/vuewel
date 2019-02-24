@@ -1,10 +1,10 @@
 /* eslint-disable react/react-in-jsx-scope, react/no-this-in-sfc */
 
 import {storiesOf} from '@storybook/vue';
-import {linkTo} from '@storybook/addon-links';
-import '../scss/all.scss'
+// import {linkTo} from '@storybook/addon-links';
+import '../sass/all.sass'
 
-import Welcome from './Welcome.vue';
+// import Welcome from './Welcome.vue';
 import ButtonStory from './button'
 import ModalStory from './modal'
 import ToolbarStory from './toolbar'
@@ -15,11 +15,11 @@ import CardStory from './card'
 import RateStory from './rate'
 import ExpanderStory from './expander'
 
-storiesOf('Welcome', module).add('to Storybook', () => ({
-  components: {Welcome},
-  template: '<welcome :showApp="action" />',
-  methods: {action: linkTo('Button')}
-}))
+// storiesOf('Welcome', module).add('to Storybook', () => ({
+//   components: {Welcome},
+//   template: '<welcome :showApp="action" />',
+//   methods: {action: linkTo('Button')}
+// }))
 
 storiesOf('Button', module)
     .add('Styles', () => ButtonStory.story1)

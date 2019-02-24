@@ -1,0 +1,21 @@
+.expander
+  position: relative
+  overflow: hidden
+
+  &.expanded
+    max-height: none
+
+  .mask
+    position: absolute
+    bottom: 0
+    left: 0
+    right: 0
+    height: 6rem
+    background: linear-gradient(0deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, .9), rgba(255, 255, 255, 0))
+
+  .foot:last-child
+    position: absolute
+    bottom: .75rem
+    left: 0
+    right: 0
+    text-align: center

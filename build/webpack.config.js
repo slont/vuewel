@@ -48,12 +48,12 @@ module.exports = {
         }
       },
       {
-        test: /\.(css|scss)$/,
+        test: /\.(css|sass|scss)$/,
         loaders: ['isomorphic-style-loader', 'css-loader', 'sass-loader',
           {
             loader: 'sass-resources-loader',
             options: {
-              resources: ['./src/scss/constants.scss'],
+              resources: ['./src/sass/constants.sass'],
               include: path.resolve(__dirname, '../')
             }
           }],

@@ -1,5 +1,6 @@
 <template>
-  <button class="button" :class="{'is-loading': computedProcessing}"
+  <button class="button"
+          :class="{'is-outlined': outlined, 'is-rounded': rounded, 'is-inverted': inverted, 'is-gradient': gradient, 'is-loading': computedProcessing}"
           :disabled="disabled"
           @click="onClick">
     <slot></slot>
@@ -10,6 +11,10 @@
   export default {
     name: 'WButton',
     props: {
+      outlined: Boolean,
+      rounded: Boolean,
+      inverted: Boolean,
+      gradient: Boolean,
       disabled: Boolean,
       processing: Boolean,
       onclick: {
