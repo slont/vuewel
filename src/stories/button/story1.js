@@ -3,6 +3,15 @@ import {linkTo} from '@storybook/addon-links'
 export default {
   template: `
 <div>
+    <div class="field" style="padding: .5rem;">
+    <label for="">Size</label>
+    <w-button class="is-mini">Mini</w-button>
+    <w-button class="is-small">Small</w-button>
+    <w-button>Default</w-button>
+    <w-button class="is-large">Large</w-button>
+    <w-button class="is-huge">Huge</w-button>
+  </div>
+
   <div class="field" style="padding: .5rem;">
     <label for="">Color</label>
     <w-button>Default</w-button>
@@ -99,15 +108,6 @@ export default {
   </div>
   
   <div class="field" style="padding: .5rem;">
-    <label for="">Size</label>
-    <w-button class="is-mini">Mini</w-button>
-    <w-button class="is-small">Small</w-button>
-    <w-button>Default</w-button>
-    <w-button class="is-large">Large</w-button>
-    <w-button class="is-huge">Huge</w-button>
-  </div>
-  
-  <div class="field" style="padding: .5rem;">
     <label for="">Rounded</label>
     <w-button class="is-small" rounded>Small</w-button>
     <w-button class="is-primary" rounded><span>Primary</span></w-button>
@@ -117,12 +117,21 @@ export default {
   </div>
   
   <div class="field" style="padding: .5rem;">
+    <label for="">Text</label>
+    <w-button class="is-small" rounded text>Small</w-button>
+    <w-button class="is-primary" rounded text><span>Primary</span></w-button>
+    <w-button class="is-success" outlined rounded text><span>Success</span></w-button>
+    <w-button class="is-link" outlined rounded text><span>Link</span></w-button>
+    <w-button class="is-danger" outlined rounded text><span>Danger</span></w-button>
+  </div>
+  
+  <div class="field" style="padding: .5rem;">
     <label for="">Loading</label>
-    <w-button class="is-small" processing>Small</w-button>
-    <w-button class="is-primary" processing><span>Primary</span></w-button>
+    <w-button class="is-mini" processing>Small</w-button>
+    <w-button class="is-primary is-small" processing><span>Primary</span></w-button>
     <w-button class="is-success" outlined processing><span>Success</span></w-button>
-    <w-button class="is-link" outlined processing><span>Link</span></w-button>
-    <w-button class="is-danger" outlined processing><span>Danger</span></w-button>
+    <w-button class="is-link is-large" outlined processing><span>Link</span></w-button>
+    <w-button class="is-danger is-huge" outlined processing><span>Danger</span></w-button>
   </div>
   
   <div class="field" style="padding: .5rem;">

@@ -10,34 +10,51 @@
   transition: background-color .2s, border-color .2s, color .15s, box-shadow .15s
   height: 2.25em
   min-width: 2.25em
+  overflow: hidden
 
   &.is-rounded
     border-radius: 5000px
+  &[disabled],
+  fieldset[disabled] &
+    background-color: white
+    box-shadow: none
+    opacity: .5
+    cursor: not-allowed
+  // Text
+  &.is-text
+    border: none
+    &:not(:hover) span
+      text-shadow: none !important
+  span
+    text-shadow: 1px 2px 4px rgba($black, .2)
 
   @each $name, $pair in $colors
     $color: nth($pair, 1)
     $color-invert: nth($pair, 2)
 
-    span
-      text-shadow: 1px 2px 4px rgba($black, .25)
+    .ripple
+      position: absolute
+      width: 0
+      height: 0
+      background-color: $color-invert
+      border-radius: 50%
+      z-index: 0
+      transform: translate(-50%, -50%)
     &.is-#{$name}
-      background-color: $color
-      border-color: $color
       color: $color-invert
+      background-color: $color
+      border: none
       &:hover,
       &.is-hovered
-        background-color: darken($color, 2.5%)
-        border-color: transparent
         color: $color-invert
+        background-color: darken($color, 2.5%)
       &:focus,
       &.is-focused
-        border-color: transparent
         color: $color-invert
       &:active,
       &.is-active
-        background-color: darken($color, 5%)
-        border-color: transparent
         color: $color-invert
+        background-color: darken($color, 5%)
       // Shadow
       &.has-shadow
         box-shadow: 0 10px 24px -8px $color
@@ -45,9 +62,8 @@
         &:focus
           box-shadow: 0 0 0 0 $color
       &.is-gradient
-        background-image: linear-gradient(35deg, $color, lighten($color, 15))
-        border: none
         color: $color-invert
+        background-image: linear-gradient(35deg, darken($color, 5), lighten($color, 15))
       // Disabled
       &[disabled],
       fieldset[disabled] &
@@ -56,18 +72,25 @@
         box-shadow: none
       // Inverted
       &.is-inverted
-        background-color: $color-invert
         color: $color
+        background-color: $color-invert
         &:hover
           background-color: darken($color-invert, 5%)
         &[disabled],
         fieldset[disabled] &
-          background-color: $color-invert
-          border-color: transparent
-          box-shadow: none
           color: $color
+          background-color: $color-invert
+          box-shadow: none
+        &:not(.is-outlined)
+          border: none
+        .ripple
+          background-color: $color
         span
-          text-shadow: 1px 2px 4px rgba($color, .3)
+          text-shadow: 1px 2px 4px rgba($color, .25)
+      // Text
+      &.is-text
+        color: $color
+        background-color: transparent
       // Loading
       &.is-loading
         span
@@ -76,57 +99,62 @@
           border-color: transparent transparent $color-invert $color-invert !important
       // Outlined
       &.is-outlined
-        background-color: transparent
-        border-color: $color
         color: $color
+        background-color: transparent
+        border: 1px solid $color
         &:hover,
         &:focus
+          color: $color-invert
+          background-color: $color
+          border-color: transparent
+          span
+            text-shadow: 1px 2px 4px rgba($black, .2)
+        &.is-loading
+          color: $color-invert
           background-color: $color
           border-color: $color
-          color: $color-invert
-          span
-            text-shadow: 1px 2px 4px rgba($black, .25)
-        &.is-loading
-          span
-            text-shadow: 0 0 4px rgba($color, .4)
           &::after
-            border-color: transparent transparent $color $color !important
+            border-color: transparent transparent $color-invert $color-invert !important
+          span
+            text-shadow: 0 0 3px rgba($color-invert, .35)
         &[disabled],
         fieldset[disabled] &
+          color: $color
           background-color: transparent
           border-color: $color
           box-shadow: none
-          color: $color
         &.has-shadow
           box-shadow: 0 0 12px 0 $color
           &:hover,
           &:focus
             box-shadow: 0 0 0 0 $color
         span
-          text-shadow: 1px 2px 4px rgba($color, .25)
+          text-shadow: 1px 2px 4px rgba($color, .2)
       // Invert Outlined
       &.is-inverted.is-outlined
+        color: lighten($color, 10)
         background-color: transparent
         border-color: lighten($color, 10)
-        color: lighten($color, 10)
         &:hover,
         &:focus
+          color: $color-invert
           background-color: lighten($color, 5)
           border-color: lighten($color, 5)
-          color: $color-invert
           span
-            text-shadow: 1px 2px 4px rgba($black, .25)
+            text-shadow: 1px 2px 4px rgba($black, .2)
         &[disabled],
         fieldset[disabled] &
+          color: $color-invert
           background-color: transparent
           border-color: $color-invert
           box-shadow: none
-          color: $color-invert
         &.has-shadow
           box-shadow: 0 0 8px 2px $color
           &:hover,
           &:focus
             box-shadow: 0 0 0 0 $color
+        .ripple
+          background-color: $color-invert
         span
           text-shadow: 1px 2px 4px rgba($color, .7)
 

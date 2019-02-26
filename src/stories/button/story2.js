@@ -12,16 +12,16 @@ export default {
   </div>
   <div>
     <label>処理中にブロックしない (@click)</label>
-    <w-button @click="asyncAlert">普通のボタン</w-button>
+    <w-button @click="asyncAlert"><span>普通のボタン</span></w-button>
   </div>
   <div>
     <label>処理中にブロックする (:onclick)</label>
-    <w-button class="is-primary is-outlined" :onclick="asyncAlert">ブロックボタン</w-button>
+    <w-button class="is-primary is-outlined" :onclick="asyncAlert"><span>ブロックボタン</span></w-button>
   </div>
   <div>
     <label>処理しない</label>
-    <w-button class="is-primary" :onclick="asyncAlert" disabled>Disabledボタン</w-button>
-    <w-button class="is-primary" :onclick="asyncAlert" processing>Processingボタン</w-button>
+    <w-button class="is-primary" :onclick="asyncAlert" disabled><span>Disabledボタン</span></w-button>
+    <w-button class="is-primary" :onclick="asyncAlert" processing><span>Processingボタン</span></w-button>
   </div>
   <div>
     Event<br/>
