@@ -1,0 +1,51 @@
+.switch
+  $size: 1.5em
+  display: flex
+  align-items: center
+  cursor: pointer
+
+  &:hover
+    .switch-area
+      background-color: darken(gainsboro, 10)
+  &-area
+    display: flex
+    align-items: center
+    justify-content: flex-start
+    height: $size
+    margin-right: .5em
+    background-color: gainsboro
+    border-radius: 5000px
+    transition: all .2s ease
+    &.is-active
+      background-color: grey
+      .switch-pin
+        margin-left: calc(100% - #{$size} + 2px)
+      .switch-label
+        //right: initial
+        left: .75em
+
+  &-pin
+    display: block
+    margin-left: 2px
+    background-color: white
+    height: calc(#{$size} - 4px)
+    width: calc(#{$size} - 4px)
+    border-radius: 5000px
+    transition: all .3s ease
+
+  &-label
+    font-size: .5em
+    position: absolute
+    left: calc(100% - #{$size} - 1em)
+    transition: all .3s ease
+
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+
+    &.is-#{$name} .switch-area
+      border: none
+
+      &:active,
+      &.is-active
+        background-color: $color

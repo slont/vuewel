@@ -14,6 +14,7 @@ import IconStory from './icon'
 import CardStory from './card'
 import RateStory from './rate'
 import ExpanderStory from './expander'
+import SwitchStory from './switch'
 
 // storiesOf('Welcome', module).add('to Storybook', () => ({
 //   components: {Welcome},
@@ -53,5 +54,8 @@ storiesOf('Rate', module)
 storiesOf('Expander', module)
     .add('Basic', () => ExpanderStory.story1)
     .add('Using over', () => ExpanderStory.story2)
+
+storiesOf('Switch', module)
+    .add('Basic', () => SwitchStory.story1)
 
 /* eslint-enable react/react-in-jsx-scope */

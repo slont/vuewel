@@ -5,6 +5,7 @@ import Columns from './columns'
 import Icon from './icon'
 import Card from './card'
 import Rate from './rate'
+import Switch from './switch'
 import Expander from './expander'
 import Navtabs from './navtabs'
 
@@ -16,6 +17,7 @@ export {
   Icon,
   Card,
   Rate,
+  Switch,
   Expander,
   Navtabs
 }
