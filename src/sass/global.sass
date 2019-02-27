@@ -197,6 +197,15 @@ a
 .image
   position: relative
 
+  &:before
+    content: ""
+    display: block
+  &.is-1by1:before
+    padding-top: 100%
+  &.is-4by3:before
+    padding-top: 75%
+  &.is-16by9:before
+    padding-top: 56.25%
   img
     position: absolute
     top: 0
@@ -206,10 +215,4 @@ a
     height: 100%
     width: 100%
     object-fit: cover
-    &.is-1by1
-    padding-top: 100%
-    &.is-4by3
-    padding-top: 75%
-    &.is-16by9
-    padding-top: 56.25%
   

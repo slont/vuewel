@@ -1,21 +1,47 @@
 .card
-  border-radius: 6px
-  box-shadow: 2px 3px 16px 1px rgba(0, 0, 0, .4)
+  border-radius: $card-border-radius
+  box-shadow: $card-shadow
   overflow: hidden
   transition: all .2s ease
 
-  &:hover
-    box-shadow: 3px 5px 20px 4px rgba(0, 0, 0, .3)
+  > .card-image
+    .image
+      display: flex
+      align-items: center
+      justify-content: center
+      overflow: hidden
 
-  > .image
-    display: flex
-    align-items: center
-    justify-content: center
+      img
+        transition: transform .2s ease
+      &.has-margin
+        margin: $card-image-margin
+        border-radius: $card-border-radius
 
   > .card-content
     padding: .5rem
 
   > .card-footer
+    display: flex
     .button
       border: none
       box-shadow: none
+    &.has-evenly
+      justify-content: space-evenly
+      .button
+        width: 100%
+
+  &:hover
+    box-shadow: $card-shadow-hovered
+
+    > .card-image
+      .image img
+        transform: scale(1.1)
+
+      .hovered-mask
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        background-color: rgba($black, .3)
+        transition: all .3s ease

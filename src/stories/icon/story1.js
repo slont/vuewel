@@ -13,8 +13,8 @@ export default {
       <span>Snowman!</span>
     </w-button>
     <w-button class="is-primary is-outlined is-huge">
-      <w-icon icon="fas fa-snowman"></w-icon>
       <span>Snowman!</span>
+      <w-icon icon="fas fa-snowman"></w-icon>
     </w-button>
     <w-button class="is-rounded is-large">
       <w-icon icon="fas fa-snowman"></w-icon>

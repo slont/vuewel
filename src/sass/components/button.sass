@@ -63,7 +63,7 @@
           box-shadow: 0 0 0 0 $color
       &.is-gradient
         color: $color-invert
-        background-image: linear-gradient(35deg, darken($color, 5), lighten($color, 15))
+        background-image: linear-gradient(35deg, darken($color, 10), lighten($color, 15))
       // Disabled
       &[disabled],
       fieldset[disabled] &
@@ -87,6 +87,8 @@
           background-color: $color
         span
           text-shadow: 1px 2px 4px rgba($color, .25)
+        .icon svg
+          filter: drop-shadow(1px 2px 2px rgba($color, .2))
       // Text
       &.is-text
         color: $color
@@ -109,6 +111,8 @@
           border-color: transparent
           span
             text-shadow: 1px 2px 4px rgba($black, .2)
+          .icon svg
+            filter: drop-shadow(1px 2px 1px rgba($black, .2))
         &.is-loading
           color: $color-invert
           background-color: $color
@@ -117,6 +121,8 @@
             border-color: transparent transparent $color-invert $color-invert !important
           span
             text-shadow: 0 0 3px rgba($color-invert, .35)
+          .icon svg
+            filter: drop-shadow(1px 2px 1px rgba($color-invert, .3))
         &[disabled],
         fieldset[disabled] &
           color: $color
@@ -130,6 +136,8 @@
             box-shadow: 0 0 0 0 $color
         span
           text-shadow: 1px 2px 4px rgba($color, .2)
+        .icon svg
+          filter: drop-shadow(1px 2px 1px rgba($color, .3))
       // Invert Outlined
       &.is-inverted.is-outlined
         color: lighten($color, 10)
@@ -142,6 +150,8 @@
           border-color: lighten($color, 5)
           span
             text-shadow: 1px 2px 4px rgba($black, .2)
+          .icon svg
+            filter: drop-shadow(1px 2px 1px rgba($black, .2))
         &[disabled],
         fieldset[disabled] &
           color: $color-invert
@@ -157,10 +167,16 @@
           background-color: $color-invert
         span
           text-shadow: 1px 2px 4px rgba($color, .7)
+        .icon svg
+          filter: drop-shadow(1px 2px 1px rgba($color, .3))
 
-  > .icon:first-child
-    margin-right: .25em
-  > .icon:last-child
-    margin-left: .25em
-    &:first-child
-      margin: 0 -0.875em
+  .ripple
+    + .icon
+      margin-right: .25em
+      &:last-child
+        margin: 0 -0.875em
+  .icon
+    svg
+      filter: drop-shadow(1px 2px 2px rgba($black, .2))
+    &:last-child
+      margin-left: .25em
