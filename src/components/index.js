@@ -6,6 +6,7 @@ import Icon from './icon'
 import Card from './card'
 import Rate from './rate'
 import Switch from './switch'
+import Radio from './radio'
 import Expander from './expander'
 import Navtabs from './navtabs'
 
@@ -18,6 +19,7 @@ export {
   Card,
   Rate,
   Switch,
+  Radio,
   Expander,
   Navtabs
 }

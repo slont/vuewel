@@ -1,0 +1,80 @@
+.radio
+  $size: 1.5em
+  $border-size: calc(#{$size} - 6px)
+  $circle-size: calc(#{$size} - 4px)
+  $circle-size-max: calc(#{$size} + 2px)
+  display: flex
+  align-items: center
+  cursor: pointer
+
+  > input
+    position: absolute
+    opacity: 0
+  &-border
+    display: flex
+    align-items: center
+    justify-content: center
+    height: $border-size
+    width: $border-size
+    margin: 3px
+    border-radius: 5000px
+    border: 2px solid darkgrey
+    overflow: visible
+    transition: all .1s ease
+  &:active
+    .radio-border
+      height: calc(#{$size} - 2px)
+      width: calc(#{$size} - 2px)
+      margin: 1px
+  &.is-active
+    .radio-border
+      height: $border-size
+      width: $border-size
+      margin: 3px
+      border-color: transparent !important
+    .radio-checked
+      animation: in-action .3s forwards
+  &-checked
+    background-color: darkgrey
+    border-radius: 5000px
+  &-label
+    margin-left: .5em
+
+  @each $name, $pair in $colors
+    $color: nth($pair, 1)
+    $color-invert: nth($pair, 2)
+
+    &.is-#{$name}
+      .radio-border
+        border: 2px solid $color
+      .radio-checked
+        background-image: linear-gradient(35deg, darken($color, 5), lighten($color, 10))
+        box-shadow: 0 4px 10px -2px $color
+
+  @keyframes in-action
+    from
+      height: 0
+      width: 0
+      min-width: 0
+    70%
+      height: $circle-size-max
+      width: $circle-size-max
+      min-width: $circle-size-max
+    to
+      height: $circle-size
+      width: $circle-size
+      min-width: $circle-size
+
+  @keyframes out-action
+    from
+      height: $circle-size
+      width: $circle-size
+      min-width: $circle-size
+    70%
+      height: $circle-size-max
+      width: $circle-size-max
+      min-width: $circle-size-max
+    to
+      height: 0
+      width: 0
+      min-width: 0

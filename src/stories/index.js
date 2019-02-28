@@ -15,6 +15,7 @@ import CardStory from './card'
 import RateStory from './rate'
 import ExpanderStory from './expander'
 import SwitchStory from './switch'
+import RadioStory from './radio'
 
 // storiesOf('Welcome', module).add('to Storybook', () => ({
 //   components: {Welcome},
@@ -57,5 +58,8 @@ storiesOf('Expander', module)
 
 storiesOf('Switch', module)
     .add('Basic', () => SwitchStory.story1)
+
+storiesOf('Radio', module)
+    .add('Basic', () => RadioStory.story1)
 
 /* eslint-enable react/react-in-jsx-scope */

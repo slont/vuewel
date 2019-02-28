@@ -1,9 +1,9 @@
 <template>
   <span class="switch" @click="onClick" :class="{'has-label': trueLabel || falseLabel}">
     <span class="switch-area" :class="{'is-active': active}" :style="`min-width: ${width};`">
-      <span v-if="active ? trueLabel : falseLabel" class="switch-label">
+      <label v-if="active ? trueLabel : falseLabel" class="switch-label">
         {{ active ? trueLabel : falseLabel }}
-      </span>
+      </label>
       <span class="switch-pin"/>
     </span>
     <slot/>
